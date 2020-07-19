@@ -1,19 +1,20 @@
-FROM node:12-alpine3.11
+FROM node:12-alpine3.11 as builder
 
-ENV PORT 3000
 ENV NODE_ENV production
+
+COPY . .
+
+RUN yarn install
+RUN yarn build
+
+FROM node:12-alpine3.11
 
 RUN mkdir /folio-fe
 WORKDIR /folio-fe
 
-COPY package.json /folio-fe/
-COPY yarn.lock /folio-fe/
-RUN yarn install
-
-COPY node_modules /folio-fe/
-COPY package.json /folio-fe/
-COPY .next /folio-fe/
-
-RUN yarn build
+COPY --from=builder package.json /folio-fe/
+COPY --from=builder yarn.lock /folio-fe/
+COPY --from=builder .next /folio-fe/
+COPY --from=builder public /folio-fe/
 
 CMD "yarn" "start"
