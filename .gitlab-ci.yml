@@ -7,7 +7,7 @@ variables:
   GOPROJECT: gitlab.com/daystram/folio
 
 build:frontend:
-  image: node:12.10.0-buster
+  image: node:12-buster
   stage: build
   script:
     - . scripts/init_frontend.sh
