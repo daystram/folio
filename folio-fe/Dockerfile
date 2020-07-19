@@ -1,4 +1,4 @@
-FROM node:12-3.11
+FROM node:12-alpine3.11
 
 ENV PORT 3000
 ENV NODE_ENV production
