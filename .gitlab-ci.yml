@@ -39,8 +39,8 @@ deploy_prod:frontend:
     DOCKER_DRIVER: overlay2
     DOCKER_TLS_CERTDIR: ""
     SERVICE_NAME: prod-folio-fe
- # before_script:
-          #  - . scripts/init_deploy.sh
+  before_script:
+    # - . scripts/init_deploy.sh
     - echo "$CI_REGISTRY_PASS" | docker login -u $CI_REGISTRY_USER --password-stdin  $CI_REGISTRY
   script:
     - docker pull $CI_REGISTRY_IMAGE:folio-fe || true
