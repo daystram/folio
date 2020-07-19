@@ -4,7 +4,7 @@ ENV NODE_ENV production
 
 COPY . .
 
-RUN yarn install
+RUN yarn install --prod
 RUN yarn build
 
 FROM node:12-alpine3.11
@@ -16,5 +16,7 @@ COPY --from=builder package.json /folio-fe/
 COPY --from=builder yarn.lock /folio-fe/
 COPY --from=builder .next /folio-fe/
 COPY --from=builder public /folio-fe/
+
+RUN yarn install --prod
 
 CMD "yarn" "start"
