@@ -1,0 +1,86 @@
+@import "../styles/vars"
+
+.mediaGlyph
+  width: 20px
+  height: auto
+  color: $color-secondary
+  margin-left: 16px
+
+.mediaGroup
+  display: flex
+  position: absolute
+  right: -266px
+
+.mediaGroup[data-isscrolling="true"]
+  right: 34px
+
+.title
+  position: fixed
+  width: 100%
+  display: flex
+  align-items: center
+  height: 100vh
+  padding: 0 32px
+  background: transparentize($color-primary, 0.25)
+  backdrop-filter: blur(2px)
+  -webkit-backdrop-filter: blur(2px)
+  justify-content: center
+
+.title[data-isscrolling="true"]
+  justify-content: flex-start
+
+.name
+  font-size: 3.5em
+  font-family: "Baloo Da 2", sans-serif
+  line-height: 1em
+  color: $color-secondary
+  margin-left: 8px
+
+.section
+  min-height: calc(100vh - #{$dim-height-navigation})
+  padding: 128px 8px
+  color: $color-secondary
+
+.head
+  height: 100vh
+  background: $color-primary
+
+.sectionHeading
+  font-family: "Baloo Da 2", sans-serif
+  font-size: 3.5em
+  margin-bottom: 32px
+
+.sectionEven
+  background: $color-tertiary
+
+.sectionOdd
+  background: $color-quaternary
+
+.entry
+  display: flex
+  align-items: center
+
+.entryContainer
+  margin-left: 32px
+
+.entryHeading
+  font-family: "Baloo Da 2", sans-serif
+  font-size: 2em
+
+.chevronContainer
+  width: 100%
+  display: flex
+  justify-content: center
+  bottom: 64px
+  position: absolute
+
+.footer
+  min-height: 128px
+  background: $color-primary
+
+.copy
+  color: transparentize($color-secondary, 0.5)
+  font-family: "Baloo 2"
+  text-align: center
+  position: relative
+  top: 48px

@@ -1,0 +1,53 @@
+stages:
+  - build
+  - deploy
+
+variables:
+  GOPATH: ${CI_PROJECT_DIR}/go
+  GOPROJECT: gitlab.com/daystram/folio
+
+build:frontend:
+  image: node:12-buster
+  stage: build
+  script:
+    - . scripts/init_frontend.sh
+    - yarn install
+    - yarn build
+  artifacts:
+    name: "$CI_COMMIT_REF_NAME-frontend"
+    paths:
+      - .next/
+      - folio-fe/node_modules/
+  only:
+    changes:
+      - folio-fe/**/*
+
+deploy_prod:frontend:
+  image: docker:git
+  stage: deploy
+  tags:
+    - docker
+  environment:
+    name: production
+  dependencies: []
+  services:
+    - name: docker:dind
+      entrypoint: ["env", "-u", "DOCKER_HOST"]
+      command: ["dockerd-entrypoint.sh"]
+  variables:
+    DOCKER_HOST: tcp://docker:2375/
+    DOCKER_DRIVER: overlay2
+    DOCKER_TLS_CERTDIR: ""
+    SERVICE_NAME: prod-folio-fe
+  before_script:
+    # - . scripts/init_deploy.sh
+    - echo "$CI_REGISTRY_PASS" | docker login -u $CI_REGISTRY_USER --password-stdin  $CI_REGISTRY
+  script:
+    - docker pull $CI_REGISTRY_IMAGE:folio-fe || true
+    - docker build --cache-from $CI_REGISTRY_IMAGE:folio-fe --tag $CI_REGISTRY_IMAGE:folio-fe folio-fe/
+    - docker push $CI_REGISTRY_IMAGE:folio-fe
+    # - ssh $HOST "make update SERVICE=$SERVICE_NAME"
+  # only:
+  #   refs:
+  #     - master
+  when: manual
