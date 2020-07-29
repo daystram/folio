@@ -1,0 +1,27 @@
+{
+  "name": "folio-fe",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.30",
+    "@fortawesome/free-brands-svg-icons": "^5.14.0",
+    "@fortawesome/free-solid-svg-icons": "^5.14.0",
+    "@fortawesome/react-fontawesome": "^0.1.11",
+    "framer": "^1.2.5",
+    "framer-motion": "^2.1.0",
+    "next": "9.4.4",
+    "postcss-flexbugs-fixes": "^4.2.1",
+    "postcss-preset-env": "^6.7.0",
+    "react": "16.13.1",
+    "react-dom": "16.13.1",
+    "sass": "^1.26.10",
+    "tailwindcss": "^1.5.1"
+  },
+  "devDependencies": {
+  }
+}
