@@ -5,11 +5,13 @@ const icon = {
   hidden: {
     pathLength: 0,
     strokeWidth: 1,
+    stroke: "#ededed00",
     fill: "rgba(237, 237, 237, 0)"
   },
   visible: {
     pathLength: [0, 1],
     strokeWidth: [0, 4, 0],
+    stroke: "#edededff",
     fill: ["rgba(237, 237, 237, 0)", "rgba(237, 237, 237, 1)", "rgba(237, 237, 237, 0.8)"]
   }
 };
