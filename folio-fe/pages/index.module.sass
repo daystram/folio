@@ -33,12 +33,12 @@
   font-size: 3.5em
   font-family: "Baloo Da 2", sans-serif
   line-height: 1em
-  color: $color-secondary
+  color: transparentize($color-secondary, 1)
   margin-left: 8px
 
 .section
-  min-height: calc(100vh - #{$dim-height-navigation})
-  padding: 128px 8px
+  // min-height: calc(100vh - #{$dim-height-navigation})
+  padding: 128px 16px
   color: $color-secondary
 
 .head
@@ -58,14 +58,41 @@
 
 .entry
   display: flex
-  align-items: center
+  align-items: flex-start
+  margin-bottom: 48px
 
 .entryContainer
-  margin-left: 32px
+  margin-left: 16px
 
-.entryHeading
+.entryLogo
+  width: 64px
+  border-radius: 16px
+
+.entryHeadContainer
+  min-height: 64px
+  display: flex
+  flex-direction: column
+  justify-content: center
+  margin-bottom: 4px
+
+.entryHeading1
   font-family: "Baloo Da 2", sans-serif
-  font-size: 2em
+  font-size: 2.25em
+  line-height: 1em
+  margin-bottom: 4px
+
+.entryHeading2
+  font-family: "Baloo Da 2", sans-serif
+  font-size: 1.25em
+  line-height: 1em
+
+.entryHeadingSub1
+  font-size: 1.25em
+  font-style: italic
+  opacity: 0.7
+
+.entryBodyContainer > *
+  font-size: 1.25em
 
 .chevronContainer
   width: 100%
