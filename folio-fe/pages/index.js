@@ -1,6 +1,6 @@
-import Head from 'next/head'
-import React, {useEffect, useState} from "react";
-import {motion, useTransform, useViewportScroll} from "framer-motion";
+import React, {useEffect, useState} from 'react';
+import Head from '../components/head'
+import {motion, useTransform, useViewportScroll} from 'framer-motion';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faGithub, faGitlab, faInstagram, faLinkedinIn, faMediumM, faTwitter} from '@fortawesome/free-brands-svg-icons'
 import {faEnvelope} from '@fortawesome/free-solid-svg-icons'
@@ -24,13 +24,7 @@ export default function Home() {
   })
   return (
     <div className={styles.container}>
-      <Head>
-        <title>Danny August Ramaputra</title>
-        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/>
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/>
-        <link rel="manifest" href="/site.webmanifest"/>
-      </Head>
+      <Head title={"Danny August Ramaputra"} description={"Danny August Ramaputra's personal website and portfolio."} />
       <main>
         <section className={`${styles.head}`}>
           <motion.div layout className={styles.title} data-isscrolling={scrolling} style={{height: title_height}}>
@@ -156,8 +150,8 @@ export default function Home() {
                   <p className={styles.entryHeadingSub1}>Mar 2019 – Aug 2019</p>
                   <p className={styles.entryHeadingSub1}>Jakarta, Indonesia</p>
                   <ul className={"list-disc"} style={{paddingLeft: 20}}>
-                    <li>Developed a mobile application for 'Quality in Research International Conference'</li>
-                    <li>Developed a mobile application for 'International Tropical Renewable Energy Conference'</li>
+                    <li>Developed a mobile application for "Quality in Research International Conference"</li>
+                    <li>Developed a mobile application for "International Tropical Renewable Energy Conference"</li>
                     <li>Mobile application is powered with Google Firestore real-time database for data storage and live chat</li>
                     <li>NodeJS back-end and React Native-based cross-platform front-end</li>
                     <li>Back-end uses WebSocket communication acting as a buffer between user mobile chat clients, the customer service client, and Google Firestore to offload client load and optimize read/write operations on Firestore</li>
@@ -176,9 +170,9 @@ export default function Home() {
                   <p className={styles.entryHeadingSub1}>Sep 2018 – Jun 2019, 10 months</p>
                   <p className={styles.entryHeadingSub1}>Jakarta, Indonesia</p>
                   <ul className={"list-disc"} style={{paddingLeft: 20}}>
-                    <li>(Jan 2019 - Jun 2019, 6 months) Teaching assistant for 'Programming Foundations 2' course</li>
-                    <li>(Jan 2019 - Jun 2019, 6 months) Teaching assistant coordinator for 'Introduction to Computer Organization' course</li>
-                    <li>(Sep 2018 - Jan 2019, 5 months) Teaching assistant coordinator for 'Introduction to Digital Systems' course</li>
+                    <li>(Jan 2019 - Jun 2019, 6 months) Teaching assistant for "Programming Foundations 2" course</li>
+                    <li>(Jan 2019 - Jun 2019, 6 months) Teaching assistant coordinator for "Introduction to Computer Organization" course</li>
+                    <li>(Sep 2018 - Jan 2019, 5 months) Teaching assistant coordinator for "Introduction to Digital Systems" course</li>
                   </ul>
                 </div>
               </div>
