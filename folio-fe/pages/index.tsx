@@ -32,9 +32,10 @@ export default function Home() {
   );
   useEffect(() => {
     setAtStart(scrollY.get() === 0);
+    setScrolling(scrollY.get() > window_height - 48);
     window.addEventListener("scroll", () => {
-      setScrolling(scrollY.get() > window_height - 48);
       setAtStart(scrollY.get() === 0);
+      setScrolling(scrollY.get() > window_height - 48);
     });
   });
   return (
