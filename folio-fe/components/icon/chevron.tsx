@@ -37,7 +37,7 @@ export default function Chevron({ shown }: { shown: boolean }) {
           default: { dduration: 1, ease: "easeInOut" },
           fill: { duration: 1.2, ease: [1, 0, 0.8, 1] },
           strokeWidth: {
-            loop: Infinity,
+            repeat: Infinity,
             duration: 2,
             repeatDelay: 1,
             ease: "easeInOut",
