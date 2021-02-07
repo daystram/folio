@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useLayoutEffect, useState } from "react";
 import { motion, useTransform, useViewportScroll } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -16,28 +16,36 @@ import styles from "./index.module.sass";
 
 export default function Home() {
   const [scrolling, setScrolling] = useState(false);
-  const [atStart, setAtStart] = useState(true);
+  const [hasScrolled, setHasScrolled] = useState(false);
+  const [, setPageLoaded] = useState(false);
+  const [windowHeight, setWindowHeight] = useState(0);
   const { scrollY } = useViewportScroll();
-  const window_height = process.browser ? window.innerHeight : 0;
-  const title_height = useTransform(
+  const titleHeight = useTransform(
     scrollY,
-    [0, window_height - 48],
-    [window_height, 48]
+    [0, windowHeight - 48],
+    [windowHeight, 48]
   );
-  const name_scale = useTransform(scrollY, [0, window_height - 48], [1, 0.4]);
-  const logo_dimension = useTransform(
+  const nameScale = useTransform(scrollY, [0, windowHeight - 48], [1, 0.4]);
+  const logoScale = useTransform(
     scrollY,
-    [0, window_height - 48],
+    [0, windowHeight - 48],
     [112, 32]
   );
-  useEffect(() => {
-    setAtStart(scrollY.get() === 0);
-    setScrolling(scrollY.get() > window_height - 48);
+  useLayoutEffect(() => {
+    setWindowHeight(window.innerHeight);
+    setScrolling(window.scrollY > window.innerHeight - 48);
     window.addEventListener("scroll", () => {
-      setAtStart(scrollY.get() === 0);
-      setScrolling(scrollY.get() > window_height - 48);
+      setPageLoaded((loaded) => {
+        // skip initial "scroll" event fired by browser
+        if (!loaded) {
+          return true;
+        }
+        setHasScrolled(true);
+        setScrolling(window.scrollY > window.innerHeight - 48);
+        return loaded;
+      });
     });
-  });
+  }, []);
   return (
     <div className={styles.container}>
       <main>
@@ -46,20 +54,35 @@ export default function Home() {
             layout
             className={styles.title}
             data-isscrolling={scrolling}
-            style={{ height: title_height }}
+            transition={{ duration: 0 }}
+            style={{ height: scrollY.get() ? titleHeight : "100%" }}
           >
             <motion.div
               layout
-              style={{ width: logo_dimension, height: logo_dimension }}
+              transition={{
+                duration: hasScrolled ? 0.25 : 0,
+                ease: "easeInOut",
+              }}
+              style={{ width: logoScale, height: logoScale }}
             >
               <Logo />
             </motion.div>
-            <motion.div layout>
+            <motion.div
+              layout
+              transition={{
+                duration: hasScrolled ? 0.25 : 0,
+                ease: "easeInOut",
+              }}
+            >
               <motion.h1
                 className={styles.name}
-                style={{ scale: name_scale, transformOrigin: "left center" }}
-                animate={{ opacity: [0, 1], color: ["#ededed00", "#edededff"] }}
-                transition={{ opacity: { duration: 2, ease: "easeInOut" } }}
+                style={{ scale: nameScale, transformOrigin: "left center" }}
+                initial={{ color: "#ededed00" }}
+                animate={{ color: "#edededff" }}
+                transition={{
+                  duration: hasScrolled ? 0.25 : 0,
+                  ease: "easeInOut",
+                }}
               >
                 Danny August Ramaputra
               </motion.h1>
@@ -68,44 +91,74 @@ export default function Home() {
               layout
               className={styles.mediaGroup}
               data-isscrolling={scrolling}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{
+                duration: hasScrolled ? 0.25 : 0,
+                ease: "easeInOut",
+              }}
             >
-              <a target="_blank" href="https://gitlab.com/daystram">
-                <FontAwesomeIcon
-                  icon={faGitlab}
-                  className={styles.mediaGlyph}
-                />
-              </a>
-              <a target="_blank" href="https://github.com/daystram">
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://github.com/daystram"
+              >
                 <FontAwesomeIcon
                   icon={faGithub}
                   className={styles.mediaGlyph}
                 />
               </a>
-              <a target="_blank" href="https://www.linkedin.com/in/daystram/">
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://gitlab.com/daystram"
+              >
+                <FontAwesomeIcon
+                  icon={faGitlab}
+                  className={styles.mediaGlyph}
+                />
+              </a>
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://www.linkedin.com/in/daystram/"
+              >
                 <FontAwesomeIcon
                   icon={faLinkedinIn}
                   className={styles.mediaGlyph}
                 />
               </a>
-              <a target="_blank" href="https://twitter.com/daystram">
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://twitter.com/daystram"
+              >
                 <FontAwesomeIcon
                   icon={faTwitter}
                   className={styles.mediaGlyph}
                 />
               </a>
-              <a target="_blank" href="https://www.instagram.com/daystram_/">
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://www.instagram.com/daystram_/"
+              >
                 <FontAwesomeIcon
                   icon={faInstagram}
                   className={styles.mediaGlyph}
                 />
               </a>
-              <a target="_blank" href="https://medium.com/@daystram">
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://medium.com/@daystram"
+              >
                 <FontAwesomeIcon
                   icon={faMediumM}
                   className={styles.mediaGlyph}
                 />
               </a>
-              <a target="_blank" href="mailto:daystram@gmail.com">
+              <a href="mailto:daystram@gmail.com">
                 <FontAwesomeIcon
                   icon={faEnvelope}
                   className={styles.mediaGlyph}
@@ -114,7 +167,7 @@ export default function Home() {
             </motion.div>
           </motion.div>
           <div className={styles.chevronContainer}>
-            <Chevron shown={atStart} />
+            <Chevron shown={process.browser && window.scrollY === 0} />
           </div>
         </section>
         <section className={`${styles.section} ${styles.sectionEven}`}>

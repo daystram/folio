@@ -21,19 +21,20 @@
   align-items: center
   height: 100vh
   padding: 0 32px
-  background: transparentize($color-primary, 0.25)
+  background: transparentize($color-primary, 1)
   backdrop-filter: blur(2px)
   -webkit-backdrop-filter: blur(2px)
   justify-content: center
 
 .title[data-isscrolling="true"]
+  background: transparentize($color-primary, 0.25)
   justify-content: flex-start
 
 .name
   font-size: 3.5em
   font-family: "Baloo Da 2", sans-serif
   line-height: 1em
-  color: transparentize($color-secondary, 1)
+  color: $color-secondary
   margin-left: 8px
 
 .section
