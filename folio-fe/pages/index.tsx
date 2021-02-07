@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import Head from "../components/head";
 import { motion, useTransform, useViewportScroll } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -11,9 +10,9 @@ import {
   faTwitter,
 } from "@fortawesome/free-brands-svg-icons";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import { Chevron, Logo } from "../components/icon";
+
 import styles from "./index.module.sass";
-import Logo from "../components/logo";
-import Chevron from "../components/chevron";
 
 export default function Home() {
   const [scrolling, setScrolling] = useState(false);
@@ -40,10 +39,6 @@ export default function Home() {
   });
   return (
     <div className={styles.container}>
-      <Head
-        title={"Danny August Ramaputra"}
-        description={"Danny August Ramaputra's personal website and portfolio."}
-      />
       <main>
         <section className={`${styles.head}`}>
           <motion.div

@@ -1,7 +1,16 @@
 import { AppProps } from "next/app";
+import Head from "../components/head";
 
-import "./global.sass";
+import "./_app.sass";
 
 export default function App({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />;
+  return (
+    <>
+      <Head
+        title={"Danny August Ramaputra"}
+        description={"Danny August Ramaputra's personal website and portfolio."}
+      />
+      <Component {...pageProps} />
+    </>
+  );
 }
