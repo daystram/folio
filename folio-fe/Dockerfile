@@ -2,7 +2,7 @@ FROM node:lts-alpine as builder
 ENV NODE_ENV=production
 WORKDIR /build
 COPY package.json yarn.lock ./
-RUN yarn install --production 
+RUN yarn install
 COPY . .
 RUN yarn build
 
