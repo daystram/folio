@@ -2,52 +2,57 @@ stages:
   - build
   - deploy
 
-variables:
-  GOPATH: ${CI_PROJECT_DIR}/go
-  GOPROJECT: gitlab.com/daystram/folio
-
-build:frontend:
-  image: node:12-buster
+# ------------------------ folio-fe
+build folio-fe:
   stage: build
+  image: node:lts-alpine
   script:
-    - . scripts/init_frontend.sh
-    - yarn install
+    - cd folio-fe
+    - yarn install --production
     - yarn build
   artifacts:
-    name: "$CI_COMMIT_REF_NAME-frontend"
     paths:
-      - .next/
-      - folio-fe/node_modules/
-  only:
-    changes:
-      - folio-fe/**/*
+      - folio-fe/.next/
 
-deploy_prod:frontend:
-  image: docker:git
+deploy dev folio-fe:
   stage: deploy
-  tags:
-    - docker
+  image: docker:19.03.12
+  needs: ["build folio-fe"]
   environment:
-    name: production
-  dependencies: []
-  services:
-    - name: docker:dind
-      entrypoint: ["env", "-u", "DOCKER_HOST"]
-      command: ["dockerd-entrypoint.sh"]
+    name: development-fe
   variables:
-    DOCKER_HOST: tcp://docker:2375/
-    DOCKER_DRIVER: overlay2
-    DOCKER_TLS_CERTDIR: ""
-    SERVICE_NAME: prod-folio-fe
+    DOCKER_TLS_CERTDIR: "/certs"
+  services:
+    - docker:19.03.12-dind
   before_script:
-    # - . scripts/init_deploy.sh
-    - echo "$CI_REGISTRY_PASS" | docker login -u $CI_REGISTRY_USER --password-stdin  $CI_REGISTRY
+    - echo "$CI_REGISTRY_PASSWORD" | docker login -u $CI_REGISTRY_USER --password-stdin $CI_REGISTRY
   script:
-    - docker pull $CI_REGISTRY_IMAGE:folio-fe || true
-    - docker build --cache-from $CI_REGISTRY_IMAGE:folio-fe --tag $CI_REGISTRY_IMAGE:folio-fe folio-fe/
-    - docker push $CI_REGISTRY_IMAGE:folio-fe
-    # - ssh $HOST "make update SERVICE=$SERVICE_NAME"
-  # only:
-  #   refs:
-  #     - master
+    - cd folio-fe
+    - docker build -t $CI_REGISTRY_IMAGE:fe-dev .
+    - docker push $CI_REGISTRY_IMAGE:fe-dev
   when: manual
+  only:
+    - branches
+  except:
+    - main
+
+deploy prod folio-fe:
+  stage: deploy
+  image: docker:19.03.12
+  needs: ["build folio-fe"]
+  environment:
+    name: production-fe
+  variables:
+    DOCKER_TLS_CERTDIR: "/certs"
+  services:
+    - docker:19.03.12-dind
+  before_script:
+    - echo "$CI_REGISTRY_PASSWORD" | docker login -u $CI_REGISTRY_USER --password-stdin $CI_REGISTRY
+  script:
+    - cd folio-fe
+    - docker build -t $CI_REGISTRY_IMAGE:fe -t $CI_REGISTRY_IMAGE:fe-$CI_COMMIT_TAG .
+    - docker push $CI_REGISTRY_IMAGE:fe
+    - docker push $CI_REGISTRY_IMAGE:fe-$CI_COMMIT_TAG
+  when: on_success
+  only:
+    - tags
