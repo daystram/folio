@@ -8,7 +8,7 @@ build folio-fe:
   image: node:lts-alpine
   script:
     - cd folio-fe
-    - yarn install --production
+    - yarn install
     - yarn build
   artifacts:
     paths:
