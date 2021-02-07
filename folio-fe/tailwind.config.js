@@ -1,6 +1,6 @@
 module.exports = {
-  purge: [
-    './pages/**/*.js',
-    './components/**/*.js'
-  ]
-}
+  future: {
+    purgeLayersByDefault: true,
+  },
+  purge: ["./pages/**/*.tsx", "./components/**/*.tsx"],
+};
