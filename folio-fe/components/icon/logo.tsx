@@ -2,21 +2,21 @@ import { motion } from "framer-motion";
 
 import styles from "./logo.module.sass";
 
-const icon = {
-  hidden: {
+const variants = {
+  start: {
     pathLength: 0,
-    strokeWidth: 1,
+    strokeWidth: 0,
     stroke: "#ededed00",
-    fill: "rgba(237, 237, 237, 0)",
+    fill: "rgba(237, 237, 237, 0.75)",
   },
-  visible: {
+  end: {
     pathLength: [0, 1],
-    strokeWidth: [0, 4, 0],
+    strokeWidth: [3, 4, 0],
     stroke: "#edededff",
     fill: [
-      "rgba(237, 237, 237, 0)",
-      "rgba(237, 237, 237, 1)",
-      "rgba(237, 237, 237, 0.8)",
+      "rgba(237, 237, 237, 0.75)",
+      "rgba(237, 237, 237, 0.95)",
+      "rgba(237, 237, 237, 0.75)",
     ],
   },
 };
@@ -31,20 +31,27 @@ export default function Logo({ className }: { className?: string }) {
       <g transform="rotate(0 40 46.2) translate(0 -4)">
         <motion.path
           d="M 0,23.1 40,0 80,23.1 40,46.2 Z"
-          variants={icon}
-          initial="hidden"
-          animate="visible"
+          variants={variants}
+          initial="start"
+          animate="end"
           transition={{
-            default: { duration: 2, ease: "easeInOut" },
-            fill: { duration: 2.2, ease: [1, 0, 0.8, 1] },
-            pathLength: {
-              loop: Infinity,
+            fill: {
+              repeat: Infinity,
+              delay: 0,
               duration: 2,
               repeatDelay: 1,
               ease: "easeInOut",
             },
+            pathLength: {
+              repeat: Infinity,
+              delay: 0,
+              duration: 2,
+              repeatDelay: 1,
+              ease: "linear",
+            },
             strokeWidth: {
-              loop: Infinity,
+              repeat: Infinity,
+              delay: 0,
               duration: 2,
               repeatDelay: 1,
               ease: "easeInOut",
@@ -55,20 +62,27 @@ export default function Logo({ className }: { className?: string }) {
       <g transform="rotate(120 40 46.2) translate(0 -4)">
         <motion.path
           d="M 0,23.1 40,0 80,23.1 40,46.2 Z"
-          variants={icon}
-          initial="hidden"
-          animate="visible"
+          variants={variants}
+          initial="start"
+          animate="end"
           transition={{
-            default: { duration: 2, ease: "easeInOut" },
-            fill: { duration: 2.2, ease: [1, 0, 0.8, 1] },
-            pathLength: {
-              loop: Infinity,
+            fill: {
+              repeat: Infinity,
+              delay: 1,
               duration: 2,
               repeatDelay: 1,
               ease: "easeInOut",
             },
+            pathLength: {
+              repeat: Infinity,
+              delay: 1,
+              duration: 2,
+              repeatDelay: 1,
+              ease: "linear",
+            },
             strokeWidth: {
-              loop: Infinity,
+              repeat: Infinity,
+              delay: 1,
               duration: 2,
               repeatDelay: 1,
               ease: "easeInOut",
@@ -79,20 +93,27 @@ export default function Logo({ className }: { className?: string }) {
       <g transform="rotate(240 40 46.2) translate(0 -4)">
         <motion.path
           d="M 0,23.1 40,0 80,23.1 40,46.2 Z"
-          variants={icon}
-          initial="hidden"
-          animate="visible"
+          variants={variants}
+          initial="start"
+          animate="end"
           transition={{
-            default: { duration: 2, ease: "easeInOut" },
-            fill: { duration: 2.2, ease: [1, 0, 0.8, 1] },
-            pathLength: {
-              loop: Infinity,
+            fill: {
+              repeat: Infinity,
+              delay: 2,
               duration: 2,
               repeatDelay: 1,
               ease: "easeInOut",
             },
+            pathLength: {
+              repeat: Infinity,
+              delay: 2,
+              duration: 2,
+              repeatDelay: 1,
+              ease: "linear",
+            },
             strokeWidth: {
-              loop: Infinity,
+              repeat: Infinity,
+              delay: 2,
               duration: 2,
               repeatDelay: 1,
               ease: "easeInOut",
