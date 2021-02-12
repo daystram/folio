@@ -1,6 +1,7 @@
 stages:
   - build
-  - deploy
+  - image
+  - chart
 
 # ------------------------ folio-fe
 build folio-fe:
@@ -14,8 +15,8 @@ build folio-fe:
     paths:
       - folio-fe/.next/
 
-deploy dev folio-fe:
-  stage: deploy
+image dev folio-fe:
+  stage: image
   image: docker:19.03.12
   needs: ["build folio-fe"]
   environment:
@@ -36,8 +37,8 @@ deploy dev folio-fe:
   except:
     - main
 
-deploy prod folio-fe:
-  stage: deploy
+image prod folio-fe:
+  stage: image
   image: docker:19.03.12
   needs: ["build folio-fe"]
   environment:
@@ -56,3 +57,31 @@ deploy prod folio-fe:
   when: on_success
   only:
     - tags
+
+chart folio:
+  stage: chart
+  image: daystram/k8s-tools:latest
+  needs: ["image dev folio-fe"]
+  variables:
+    APPLICATION_NAME: "folio"
+    APPLICATION_VERSION: "v0.0.1-alpha.1"
+  before_script:
+    - git config user.name $BOTDAYSTRAM_NAME
+    - git config user.email $BOTDAYSTRAM_EMAIL
+    - git config core.sshCommand "ssh -i $BOTDAYSTRAM_KEY_FILE"
+    - chmod 700 $BOTDAYSTRAM_KEY_FILE
+    - eval `ssh-agent -s`
+  script:
+    - git clone https://github.com/daystram/helm-charts.git
+    - cp .daystram helm-charts/docs/
+    - cd helm-charts/docs/
+    - curl -sfL https://charts.daystram.com/build.sh | sh -s - $APPLICATION_NAME $APPLICATION_VERSION
+    - rm -rf .daystram/
+    - git add .
+    - 'git commit -m "feat: added chart for ${APPLICATION_NAME}@${APPLICATION_VERSION}"'
+    - git push
+  when: on_success
+  only:
+    - branches
+  except:
+    - main
