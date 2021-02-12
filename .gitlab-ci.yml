@@ -66,11 +66,12 @@ chart folio:
     APPLICATION_NAME: "folio"
     APPLICATION_VERSION: "v0.0.1-alpha.1"
   before_script:
-    - git config user.name $BOTDAYSTRAM_NAME
-    - git config user.email $BOTDAYSTRAM_EMAIL
-    - git config core.sshCommand "ssh -i $BOTDAYSTRAM_KEY_FILE"
+    - git config --global user.name "$BOTDAYSTRAM_NAME"
+    - git config --global user.email "$BOTDAYSTRAM_EMAIL"
+    - git config --global core.sshCommand "ssh -i $BOTDAYSTRAM_KEY_FILE"
     - chmod 700 $BOTDAYSTRAM_KEY_FILE
     - eval `ssh-agent -s`
+    - cat $KUBECONFIG_FILE > $KUBECONFIG
   script:
     - git clone https://github.com/daystram/helm-charts.git
     - cp -r .daystram helm-charts/docs/
