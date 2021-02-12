@@ -73,7 +73,7 @@ chart folio:
     - eval `ssh-agent -s`
   script:
     - git clone https://github.com/daystram/helm-charts.git
-    - cp .daystram helm-charts/docs/
+    - cp -r .daystram helm-charts/docs/
     - cd helm-charts/docs/
     - curl -sfL https://charts.daystram.com/build.sh | sh -s - $APPLICATION_NAME $APPLICATION_VERSION
     - rm -rf .daystram/
