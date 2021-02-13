@@ -68,9 +68,8 @@ chart folio:
   before_script:
     - git config --global user.name "$BOTDAYSTRAM_NAME"
     - git config --global user.email "$BOTDAYSTRAM_EMAIL"
-    - git config --global core.sshCommand "ssh -i ~/.ssh/id_rsa"
     - mkdir -p ~/.ssh && eval `ssh-agent -s` && ssh-keyscan github.com >> ~/.ssh/known_hosts
-    - cat $BOTDAYSTRAM_KEY_FILE > ~/.ssh/id_rsa && chmod 700 ~/.ssh/id_rsa
+    - cat $BOTDAYSTRAM_KEY_FILE | ssh-add -
     - cat $KUBECONFIG_FILE > $KUBECONFIG && chmod 700 $KUBECONFIG
   script:
     - git clone git@github.com:daystram/helm-charts.git
