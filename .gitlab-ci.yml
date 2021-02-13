@@ -73,7 +73,7 @@ chart folio:
     - eval `ssh-agent -s`
     - cat $KUBECONFIG_FILE > $KUBECONFIG
   script:
-    - git clone https://github.com/daystram/helm-charts.git
+    - git clone git@github.com:daystram/helm-charts.git
     - cp -r .daystram helm-charts/docs/
     - cd helm-charts/docs/
     - curl -sfL https://charts.daystram.com/build.sh | sh -s - $APPLICATION_NAME $APPLICATION_VERSION
