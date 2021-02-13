@@ -36,6 +36,25 @@ To run `folio-fe`, run the following:
 $ docker run --name folio-fe -p 3000:3000 -d daystram/folio:fe
 ```
 
+### Helm Chart
+
+To deploy to a Kubernetes cluster, Helm charts could be used. Add the [repository](https://charts.daystram.com):
+
+```shell
+$ helm repo add daystram https://charts.daystram.com
+$ helm repo update
+```
+
+And install `folio`:
+
+```shell
+$ helm install folio daystram/folio
+```
+
+You can override the chart values by providing a `values.yaml` file via the `--values` flag.
+
+Pre-release and development charts are accessible using the `--devel` flag. To isntall the development chart, provide the `--set image.tag=dev` flag, as development images are deployed with the suffix `dev`.
+
 ### Docker Compose
 
 For ease of deployment, the following `docker-compose.yml` file can be used to orchestrate the stack deployment:
