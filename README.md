@@ -1,6 +1,6 @@
 # :bookmark_tabs: Folio
 
-[![Gitlab Pipeline Status](https://img.shields.io/gitlab/pipeline/daystram/folio/main)](https://gitlab.com/daystram/folio/-/pipelines)
+[![Gitlab Pipeline Status](https://img.shields.io/gitlab/pipeline/daystram/folio/master)](https://gitlab.com/daystram/folio/-/pipelines)
 [![Docker Pulls](https://img.shields.io/docker/pulls/daystram/folio)](https://hub.docker.com/r/daystram/folio)
 [![MIT License](https://img.shields.io/github/license/daystram/folio)](https://github.com/daystram/folio/blob/master/LICENSE)
 
