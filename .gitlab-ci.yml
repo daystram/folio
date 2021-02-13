@@ -70,6 +70,7 @@ chart folio:
     - git config --global user.email "$BOTDAYSTRAM_EMAIL"
     - git config --global core.sshCommand "ssh -i $BOTDAYSTRAM_KEY_FILE"
     - eval `ssh-agent -s`
+    - ssh-keyscan github.com >> ~/.ssh/known_hosts
     - cat $KUBECONFIG_FILE > $KUBECONFIG
     - chmod 700 $BOTDAYSTRAM_KEY_FILE
     - chmod 700 $KUBECONFIG
