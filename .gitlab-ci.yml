@@ -64,7 +64,7 @@ chart dev folio:
   needs: ["image dev folio-fe"]
   variables:
     APPLICATION_NAME: "folio"
-    APPLICATION_VERSION: "dev"
+    APPLICATION_VERSION: "v0.0.0-development"
   before_script:
     - git config --global user.name "$BOTDAYSTRAM_NAME"
     - git config --global user.email "$BOTDAYSTRAM_EMAIL"
