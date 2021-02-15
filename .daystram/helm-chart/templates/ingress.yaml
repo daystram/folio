@@ -1,0 +1,39 @@
+{{- if .Values.ingress.enabled -}}
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: {{ include "folio.fullname" . }}
+  labels:
+    {{- include "folio.labels" . | nindent 4 }}
+  {{- with .Values.ingress.annotations }}
+  annotations:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - kind: Rule
+      match: Host(`{{ .Values.ingress.host }}`)
+      services:
+        - name: {{ include "folio.fullname" . }}-fe
+          passHostHeader: true
+          port: {{ .Values.service.port }}
+  {{- if .Values.ingress.tls }}
+  tls:
+    secretName: cert-{{ include "folio.fullname" . }}
+  {{- end }}
+
+---
+apiVersion: cert-manager.io/v1alpha2
+kind: Certificate
+metadata:
+  name: cert-{{ include "folio.fullname" . }}
+spec:
+  secretName: cert-{{ include "folio.fullname" . }}
+  dnsNames:
+    - {{ .Values.ingress.host }}
+  issuerRef:
+    kind: {{ .Values.ingress.certificate.issuerRef.kind }}
+    name: {{ .Values.ingress.certificate.issuerRef.name }}
+{{- end }}

@@ -1,6 +1,6 @@
 # :bookmark_tabs: Folio
 
-[![Gitlab Pipeline Status](https://img.shields.io/gitlab/pipeline/daystram/folio/main)](https://gitlab.com/daystram/folio/-/pipelines)
+[![Gitlab Pipeline Status](https://img.shields.io/gitlab/pipeline/daystram/folio/master)](https://gitlab.com/daystram/folio/-/pipelines)
 [![Docker Pulls](https://img.shields.io/docker/pulls/daystram/folio)](https://hub.docker.com/r/daystram/folio)
 [![MIT License](https://img.shields.io/github/license/daystram/folio)](https://github.com/daystram/folio/blob/master/LICENSE)
 
@@ -35,6 +35,25 @@ To run `folio-fe`, run the following:
 ```console
 $ docker run --name folio-fe -p 3000:3000 -d daystram/folio:fe
 ```
+
+### Helm Chart
+
+To deploy to a Kubernetes cluster, Helm charts could be used. Add the [repository](https://charts.daystram.com):
+
+```shell
+$ helm repo add daystram https://charts.daystram.com
+$ helm repo update
+```
+
+And install `folio`:
+
+```shell
+$ helm install folio daystram/folio
+```
+
+You can override the chart values by providing a `values.yaml` file via the `--values` flag.
+
+Pre-release and development charts are accessible using the `--devel` flag. To isntall the development chart, provide the `--set image.tag=dev` flag, as development images are deployed with the suffix `dev`.
 
 ### Docker Compose
 
