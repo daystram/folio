@@ -1,0 +1,52 @@
+@import "../styles/vars"
+
+.mediaGlyph
+  width: 20px
+  height: auto
+  color: $color-secondary
+  margin-left: 16px
+
+.mediaGroup
+  display: flex
+  position: absolute
+  right: -266px
+
+.mediaGroup[data-isscrolling="true"]
+  right: 34px
+
+.title
+  z-index: 5000
+  position: fixed
+  width: 100%
+  display: flex
+  align-items: center
+  height: 100vh
+  padding: 0 32px
+  background: transparentize($color-primary, 1)
+  -webkit-backdrop-filter: blur(5px)
+  -moz-backdrop-filter: blur(5px)
+  -ms-backdrop-filter: blur(5px)
+  -o-backdrop-filter: blur(5px)
+  backdrop-filter: blur(5px)
+  justify-content: center
+
+.title[data-isscrolling="true"]
+  background: transparentize($color-primary, 0.25)
+  justify-content: flex-start
+
+.name
+  font-size: 3.5em
+  font-family: "Baloo Da 2", sans-serif
+  line-height: 1em
+  color: $color-secondary
+  margin-left: 8px
+
+.head
+  background: $color-primary
+
+.chevronContainer
+  width: 100%
+  display: flex
+  justify-content: center
+  bottom: 64px
+  position: absolute

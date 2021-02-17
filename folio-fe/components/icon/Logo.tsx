@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 
-import styles from "./logo.module.sass";
+import styles from "./Logo.module.sass";
 
 const variants = {
   start: {

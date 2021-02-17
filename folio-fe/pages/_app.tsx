@@ -1,5 +1,5 @@
 import { AppProps } from "next/app";
-import Head from "../components/head";
+import Head from "../components/Head";
 
 import "./_app.sass";
 
