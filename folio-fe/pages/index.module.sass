@@ -1,61 +1,54 @@
 @import "../styles/vars"
 
-.mediaGlyph
-  width: 20px
-  height: auto
-  color: $color-secondary
-  margin-left: 16px
+.highlight
+  background: linear-gradient(to top, transparent 27.5%, transparentize($color-accent, 0.2) 27.5%, transparentize($color-accent, 0.7) 42.5%, transparent 42.5%)
 
-.mediaGroup
-  display: flex
-  position: absolute
-  right: -266px
+.focus
+  color: $color-primary
 
-.mediaGroup[data-isscrolling="true"]
-  right: 34px
-
-.title
-  position: fixed
-  width: 100%
-  display: flex
-  align-items: center
-  height: 100vh
-  padding: 0 32px
-  background: transparentize($color-primary, 1)
-  backdrop-filter: blur(2px)
-  -webkit-backdrop-filter: blur(2px)
+.bio
+  color: transparentize($color-primary, 0.2)
+  flex-direction: column
   justify-content: center
-
-.title[data-isscrolling="true"]
-  background: transparentize($color-primary, 0.25)
-  justify-content: flex-start
-
-.name
-  font-size: 3.5em
-  font-family: "Baloo Da 2", sans-serif
-  line-height: 1em
-  color: $color-secondary
-  margin-left: 8px
+  display: flex
 
 .section
   // min-height: calc(100vh - #{$dim-height-navigation})
   padding: 128px 16px
-  color: $color-secondary
-
-.head
-  height: 100vh
-  background: $color-primary
 
 .sectionHeading
   font-family: "Baloo Da 2", sans-serif
   font-size: 3.5em
   margin-bottom: 32px
 
+.sectionDescription
+  font-family: "Baloo Da 2", sans-serif
+  font-size: 1.25em
+  margin-bottom: 32px
+
 .sectionEven
-  background: $color-tertiary
+  background: $color-secondary
+  color: $color-primary
 
 .sectionOdd
-  background: $color-quaternary
+  background: $color-primary
+  color: $color-secondary
+
+.sectionSeparator
+  height: 2px
+  background: transparentize($color-primary, 0.85)
+  width: 70%
+  margin: auto
+
+.sectionSeparator::before
+  color: transparentize($color-primary, 0.85)
+  content: "//"
+  font-weight: bold
+  font-family: monospace
+  line-height: 0
+  font-size: 2em
+  display: flex
+  margin-left: 16px
 
 .entry
   display: flex
@@ -78,9 +71,9 @@
 
 .entryHeading1
   font-family: "Baloo Da 2", sans-serif
-  font-size: 2.25em
-  line-height: 1em
-  margin-bottom: 4px
+  font-size: 2.5em
+  line-height: 1.2em
+  margin-bottom: 16px
 
 .entryHeading2
   font-family: "Baloo Da 2", sans-serif
@@ -95,20 +88,99 @@
 .entryBodyContainer > *
   font-size: 1.25em
 
-.chevronContainer
+.hexagon
+  overflow: hidden
+  visibility: hidden
+  -webkit-transform: rotate(120deg)
+  -moz-transform: rotate(120deg)
+  -ms-transform: rotate(120deg)
+  -o-transform: rotate(120deg)
+  transform: rotate(120deg)
+  width: 230px
+  height: 460px
+
+.hexagon_in1
+  overflow: hidden
   width: 100%
-  display: flex
-  justify-content: center
-  bottom: 64px
-  position: absolute
+  height: 100%
+  -webkit-transform: rotate(-60deg)
+  -moz-transform: rotate(-60deg)
+  -ms-transform: rotate(-60deg)
+  -o-transform: rotate(-60deg)
+  transform: rotate(-60deg)
 
-.footer
-  min-height: 128px
-  background: $color-primary
+.hexagon_in2
+  width: 100%
+  height: 100%
+  background-repeat: no-repeat
+  background-position: 50%
+  background-image: url(/portrait.png)
+  visibility: visible
+  -webkit-transform: rotate(-60deg)
+  -moz-transform: rotate(-60deg)
+  -ms-transform: rotate(-60deg)
+  -o-transform: rotate(-60deg)
+  transform: rotate(-60deg)
 
-.copy
-  color: transparentize($color-secondary, 0.5)
-  font-family: "Baloo 2"
+.btn
+  padding: 12px 32px
+  @apply rounded-lg transition duration-500 ease-in-out
+
+.btn:hover
+  @apply shadow-2xl transform -translate-y-0.5
+
+.btnResume
+  background: lighten($color-primary, 10)
+  width: fit-content
+  color: $color-secondary
+
+.btnProjectVisit
+  background: lighten($color-primary, 10)
+  color: $color-secondary
   text-align: center
-  position: relative
-  top: 48px
+
+.projectContainer
+  background: lighten($color-accent, 0)
+  color: $color-secondary
+  min-height: 480px
+  @apply rounded-xl p-6 transition duration-500 ease-in-out
+
+.projectContainer:hover
+  @apply shadow-2xl transform scale-105
+
+.projectTitle
+  font-family: "Baloo Da 2", sans-serif
+  font-size: 2.75em
+  text-align: center
+  padding: 72px 0
+
+.projectDescription
+  font-family: "Baloo Da 2", sans-serif
+  font-size: 1.25em
+  text-align: center
+  width: 80%
+  margin: auto
+
+.projectBackgroundRatify
+  background: #70501b
+  background: linear-gradient(30deg,#70501b 20%,#003e3e 80%)
+
+.projectBackgroundCut
+  background: #093028
+  background: linear-gradient(90deg,#237a57,#093028)
+
+.projectBackgroundCast
+  background: #55180287
+  background: linear-gradient(-60deg,#c33603,#4d1501)
+
+.projectBackgroundProton
+  background: #093028
+  background: linear-gradient(180deg,#1d4092,#091a4b)
+
+.projectBackgroundChart
+  background: #093028
+  background: linear-gradient(30deg,#197788,#04153f)
+
+.projectBackgroundFolio
+  background: #093028
+  background: linear-gradient(-135deg,#049451,#003b14)
