@@ -33,9 +33,6 @@ export default function TitleBar({ scrollable }: { scrollable?: boolean }) {
   scrollable &&
     useLayoutEffect(() => {
       setWindowHeight(window.innerHeight);
-      console.log(window.innerHeight);
-      console.log(titleHeight);
-      console.log(scrollY.get());
       setScrolling(window.scrollY > window.innerHeight - 48);
       window.addEventListener("scroll", () => {
         setPageLoaded((loaded) => {
@@ -156,7 +153,7 @@ export default function TitleBar({ scrollable }: { scrollable?: boolean }) {
         </motion.div>
       </motion.div>
       <div className={styles.chevronContainer} style={{ zIndex: 5000 }}>
-        <Chevron shown={process.browser && window.scrollY === 0} />
+        <Chevron shown={process.browser && !window.scrollY} />
       </div>
     </section>
   );
