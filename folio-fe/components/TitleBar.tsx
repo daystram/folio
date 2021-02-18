@@ -162,9 +162,11 @@ export default function TitleBar({ scrollable }: { scrollable?: boolean }) {
           </a>
         </motion.div>
       </motion.div>
-      <div className={styles.chevronContainer} style={{ zIndex: 5000 }}>
-        <Chevron shown={process.browser && !window.scrollY} />
-      </div>
+      {scrollable && (
+        <div className={styles.chevronContainer} style={{ zIndex: 5000 }}>
+          <Chevron shown={process.browser && !window.scrollY} />
+        </div>
+      )}
     </section>
   );
 }
