@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 
-import styles from "./chevron.module.sass";
+import styles from "./Chevron.module.sass";
 
 const icon = {
   hidden: {

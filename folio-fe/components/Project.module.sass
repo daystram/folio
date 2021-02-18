@@ -1,0 +1,52 @@
+@import "../styles/vars"
+
+.btn
+  padding: 12px 32px
+  @apply shadow-md rounded-lg transition duration-500 ease-in-out
+
+.btn:hover
+  @apply shadow-2xl transform -translate-y-0.5
+
+.btnProjectVisit
+  background: lighten($color-primary, 10)
+  color: $color-secondary
+  text-align: center
+
+.projectContainer
+  background: lighten($color-accent, 0)
+  color: $color-secondary
+  min-height: 480px
+  @apply rounded-xl p-6 transition duration-500 ease-in-out
+
+.projectContainer:hover
+  @apply shadow-2xl transform scale-105
+
+.projectTitle
+  font-family: "Baloo Da 2", sans-serif
+  font-size: 2.75em
+  text-align: center
+  padding: 72px 0
+
+.projectDescription
+  font-family: "Baloo Da 2", sans-serif
+  font-size: 1.25em
+  text-align: center
+  width: 80%
+  margin: auto
+
+.projectTags
+  text-align: center
+  width: 80%
+  margin: 24px auto
+  display: flex
+  flex-wrap: wrap
+  justify-content: center
+
+.tag
+  padding: 0 12px
+  margin: 6px
+  border-radius: 48px
+  background: transparentize($color-secondary, 0.75)
+  flex: 1
+  flex-grow: 0
+  white-space: nowrap

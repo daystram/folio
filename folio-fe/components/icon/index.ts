@@ -1,4 +1,4 @@
-import Chevron from "./chevron";
-import Logo from "./logo";
+import Chevron from "./Chevron";
+import Logo from "./Logo";
 
 export { Chevron, Logo };

@@ -1,61 +1,57 @@
 @import "../styles/vars"
 
-.mediaGlyph
-  width: 20px
-  height: auto
-  color: $color-secondary
-  margin-left: 16px
+.highlight
+  background: linear-gradient(to top, transparent 27.5%, transparentize($color-accent, 0.2) 27.5%, transparentize($color-accent, 0.7) 42.5%, transparent 42.5%)
 
-.mediaGroup
-  display: flex
-  position: absolute
-  right: -266px
+.focus
+  color: $color-primary
 
-.mediaGroup[data-isscrolling="true"]
-  right: 34px
-
-.title
-  position: fixed
-  width: 100%
-  display: flex
-  align-items: center
-  height: 100vh
-  padding: 0 32px
-  background: transparentize($color-primary, 1)
-  backdrop-filter: blur(2px)
-  -webkit-backdrop-filter: blur(2px)
+.bio
+  color: transparentize($color-primary, 0.2)
+  flex-direction: column
   justify-content: center
+  display: flex
 
-.title[data-isscrolling="true"]
-  background: transparentize($color-primary, 0.25)
-  justify-content: flex-start
-
-.name
-  font-size: 3.5em
-  font-family: "Baloo Da 2", sans-serif
-  line-height: 1em
-  color: $color-secondary
-  margin-left: 8px
+.content
+  background: $color-secondary
 
 .section
-  // min-height: calc(100vh - #{$dim-height-navigation})
+  // min-height: calc(100vh - #$dim-height-navigation)
   padding: 128px 16px
-  color: $color-secondary
-
-.head
-  height: 100vh
-  background: $color-primary
 
 .sectionHeading
   font-family: "Baloo Da 2", sans-serif
   font-size: 3.5em
   margin-bottom: 32px
 
+.sectionDescription
+  font-family: "Baloo Da 2", sans-serif
+  font-size: 1.25em
+  margin-bottom: 32px
+
 .sectionEven
-  background: $color-tertiary
+  background: $color-secondary
+  color: $color-primary
 
 .sectionOdd
-  background: $color-quaternary
+  background: $color-primary
+  color: $color-secondary
+
+.sectionSeparator
+  height: 2px
+  background: transparentize($color-primary, 0.85)
+  width: 70%
+  margin: auto
+
+.sectionSeparator::before
+  color: transparentize($color-primary, 0.85)
+  content: "//"
+  font-weight: bold
+  font-family: monospace
+  line-height: 0
+  font-size: 2em
+  display: flex
+  margin-left: 16px
 
 .entry
   display: flex
@@ -78,9 +74,9 @@
 
 .entryHeading1
   font-family: "Baloo Da 2", sans-serif
-  font-size: 2.25em
-  line-height: 1em
-  margin-bottom: 4px
+  font-size: 2.5em
+  line-height: 1.2em
+  margin-bottom: 16px
 
 .entryHeading2
   font-family: "Baloo Da 2", sans-serif
@@ -95,20 +91,98 @@
 .entryBodyContainer > *
   font-size: 1.25em
 
-.chevronContainer
-  width: 100%
-  display: flex
-  justify-content: center
-  bottom: 64px
-  position: absolute
-
-.footer
-  min-height: 128px
-  background: $color-primary
-
-.copy
-  color: transparentize($color-secondary, 0.5)
-  font-family: "Baloo 2"
-  text-align: center
+// created from http://brenna.github.io/csshexagon/
+.hexagon
   position: relative
-  top: 48px
+  width: 260px
+  height: 150.11px
+  margin: 75.06px auto
+  background-image: url(/portrait.png)
+  background-size: auto 300.2221px
+  background-position: center
+  @apply shadow-xl
+
+.hexTop, .hexBottom
+  position: absolute
+  z-index: 1
+  width: 183.85px
+  height: 183.85px
+  overflow: hidden
+  -webkit-transform: scaleY(0.5774) rotate(-45deg)
+  -ms-transform: scaleY(0.5774) rotate(-45deg)
+  transform: scaleY(0.5774) rotate(-45deg)
+  background: inherit
+  left: 38.08px
+  @apply shadow-xl
+
+/*counter transform the bg image on the caps*/
+.hexTop:after, .hexBottom:after
+  content: ""
+  position: absolute
+  width: 260.0000px
+  height: 150.1110699893027px
+  -webkit-transform: rotate(45deg) scaleY(1.7321) translateY(-75.0555px)
+  -ms-transform: rotate(45deg) scaleY(1.7321) translateY(-75.0555px)
+  transform: rotate(45deg) scaleY(1.7321) translateY(-75.0555px)
+  -webkit-transform-origin: 0 0
+  -ms-transform-origin: 0 0
+  transform-origin: 0 0
+  background: inherit
+
+.hexTop
+  top: -91.9239px
+
+.hexTop:after
+  background-position: center top
+
+.hexBottom
+  bottom: -91.9239px
+
+.hexBottom:after
+  background-position: center bottom
+
+.hexagon:after
+  content: ""
+  position: absolute
+  top: 0.0000px
+  left: 0
+  width: 260.0000px
+  height: 150.1111px
+  z-index: 2
+  background: inherit
+
+.btn
+  padding: 12px 32px
+  @apply shadow-md rounded-lg transition duration-500 ease-in-out
+
+.btn:hover
+  @apply shadow-2xl transform -translate-y-0.5
+
+.btnResume
+  background: lighten($color-primary, 10)
+  width: fit-content
+  color: $color-secondary
+
+.projectBackgroundRatify
+  background: #70501b
+  background: linear-gradient(30deg,#70501b 20%,#003e3e 80%)
+
+.projectBackgroundCut
+  background: #093028
+  background: linear-gradient(90deg,#237a57,#093028)
+
+.projectBackgroundCast
+  background: #55180287
+  background: linear-gradient(-60deg,#c33603,#4d1501)
+
+.projectBackgroundProton
+  background: #093028
+  background: linear-gradient(180deg,#1d4092,#091a4b)
+
+.projectBackgroundChart
+  background: #093028
+  background: linear-gradient(30deg,#197788,#04153f)
+
+.projectBackgroundFolio
+  background: #093028
+  background: linear-gradient(-135deg,#049451,#003b14)
