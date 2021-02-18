@@ -61,10 +61,11 @@ export default function TitleBar({ scrollable }: { scrollable?: boolean }) {
         data-isscrolling={scrolling}
         transition={{ duration: 0 }}
         style={{
-          height:
-            process.browser && window.scrollY && titleHeight
+          height: scrollable
+            ? process.browser && window.scrollY && titleHeight
               ? titleHeight
-              : "100%",
+              : "100%"
+            : 48,
         }}
       >
         <motion.div
