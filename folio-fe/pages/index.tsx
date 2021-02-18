@@ -2,6 +2,7 @@ import React from "react";
 import Link from "next/link";
 import TitleBar from "../components/TitleBar";
 import FooterBar from "../components/FooterBar";
+import Project from "../components/Project";
 
 import styles from "./index.module.sass";
 
@@ -11,14 +12,15 @@ export default function Home() {
       <main>
         <TitleBar scrollable />
         <section className={`${styles.section} ${styles.sectionEven}`}>
-          <div className={"container mx-auto lg:py-64 lg:flex"}>
-            <div className={`mx-auto lg:m-0 lg:flex-none ${styles.hexagon}`}>
-              <div className={styles.hexagon_in1}>
-                <div className={styles.hexagon_in2} />
+          <div className={"container mx-auto lg:py-48 lg:flex"}>
+            <div className={"div my-32"}>
+              <div className={`lg:flex-none ${styles.hexagon}`}>
+                <div className={styles.hexTop} />
+                <div className={styles.hexBottom} />
               </div>
             </div>
             <div
-              className={`lg:flex-grow lg:ml-16 pb-32 lg:pb-0 ${styles.bio}`}
+              className={`lg:flex-grow lg:ml-16 pb-24 lg:pb-0 ${styles.bio}`}
             >
               <div className={styles.entryHeading1}>
                 <span className={styles.focus}>Hi!</span> I am{" "}
@@ -70,178 +72,68 @@ export default function Home() {
               <span className={styles.highlight}>Kubernetes cluster</span>.
             </div>
             <div className={"grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12"}>
-              <div
-                className={`flex flex-grow flex-col ${styles.projectContainer} ${styles.projectBackgroundRatify}`}
-              >
-                <div className={"flex-grow"}>
-                  <div className={styles.projectTitle}>🔒 Ratify</div>
-                  <div className={styles.projectDescription}>
-                    Central Authentication Service implementing OAuth 2.0 and
-                    OpenID Connect protocols.
-                  </div>
-                </div>
-                <div className={"flex-none grid grid-cols-2 gap-8"}>
-                  <a
-                    target={"_blank"}
-                    rel={"noopener noreferrer"}
-                    href={"https://ratify.daystram.com"}
-                  >
-                    <div className={`${styles.btn} ${styles.btnProjectVisit}`}>
-                      Visit Project
-                    </div>
-                  </a>
-                  <a
-                    target={"_blank"}
-                    rel={"noopener noreferrer"}
-                    href={"https://github.com/daystram/ratify"}
-                  >
-                    <div className={`${styles.btn} ${styles.btnProjectVisit}`}>
-                      View on GitHub
-                    </div>
-                  </a>
-                </div>
-              </div>
-              <div
-                className={`flex flex-grow flex-col ${styles.projectContainer} ${styles.projectBackgroundCut}`}
-              >
-                <div className={"flex-grow"}>
-                  <div className={styles.projectTitle}>📋 Cut</div>
-                  <div className={styles.projectDescription}>
-                    URL, snippet, and file sharing with ease.
-                  </div>
-                </div>
-                <div className={"flex-none grid grid-cols-2 gap-8"}>
-                  <a
-                    target={"_blank"}
-                    rel={"noopener noreferrer"}
-                    href={"https://cut.daystram.com"}
-                  >
-                    <div className={`${styles.btn} ${styles.btnProjectVisit}`}>
-                      Visit Project
-                    </div>
-                  </a>
-                  <a
-                    target={"_blank"}
-                    rel={"noopener noreferrer"}
-                    href={"https://github.com/daystram/cut"}
-                  >
-                    <div className={`${styles.btn} ${styles.btnProjectVisit}`}>
-                      View on GitHub
-                    </div>
-                  </a>
-                </div>
-              </div>
-              <div
-                className={`flex flex-grow flex-col ${styles.projectContainer} ${styles.projectBackgroundCast}`}
-              >
-                <div className={"flex-grow"}>
-                  <div className={styles.projectTitle}>📺 cast</div>
-                  <div className={styles.projectDescription}>
-                    DASH video-streaming and RTMP live-streaming platform.
-                  </div>
-                </div>
-                <div className={"flex-none grid grid-cols-2 gap-8"}>
-                  <a
-                    target={"_blank"}
-                    rel={"noopener noreferrer"}
-                    href={"https://cast.daystram.com"}
-                  >
-                    <div className={`${styles.btn} ${styles.btnProjectVisit}`}>
-                      Visit Project
-                    </div>
-                  </a>
-                  <a
-                    target={"_blank"}
-                    rel={"noopener noreferrer"}
-                    href={"https://github.com/daystram/cast"}
-                  >
-                    <div className={`${styles.btn} ${styles.btnProjectVisit}`}>
-                      View on GitHub
-                    </div>
-                  </a>
-                </div>
-              </div>
-              <div
-                className={`flex flex-grow flex-col ${styles.projectContainer} ${styles.projectBackgroundProton}`}
-              >
-                <div className={"flex-grow"}>
-                  <div className={styles.projectTitle}>🌀 Proton</div>
-                  <div className={styles.projectDescription}>
-                    Proton K8s cluster setup guide, assets, and configurations.
-                  </div>
-                </div>
-                <div className={"flex-none grid grid-cols-1 gap-8"}>
-                  <a
-                    target={"_blank"}
-                    rel={"noopener noreferrer"}
-                    href={"https://github.com/daystram/proton"}
-                  >
-                    <div className={`${styles.btn} ${styles.btnProjectVisit}`}>
-                      View on GitHub
-                    </div>
-                  </a>
-                </div>
-              </div>
-              <div
-                className={`flex flex-grow flex-col ${styles.projectContainer} ${styles.projectBackgroundChart}`}
-              >
-                <div className={"flex-grow"}>
-                  <div className={styles.projectTitle}>🚢 helm-charts</div>
-                  <div className={styles.projectDescription}>
-                    Helm chart repository for daystram applications.
-                  </div>
-                </div>
-                <div className={"flex-none grid grid-cols-2 gap-8"}>
-                  <a
-                    target={"_blank"}
-                    rel={"noopener noreferrer"}
-                    href={"https://charts.daystram.com"}
-                  >
-                    <div className={`${styles.btn} ${styles.btnProjectVisit}`}>
-                      Visit Project
-                    </div>
-                  </a>
-                  <a
-                    target={"_blank"}
-                    rel={"noopener noreferrer"}
-                    href={"https://github.com/daystram/helm-charts"}
-                  >
-                    <div className={`${styles.btn} ${styles.btnProjectVisit}`}>
-                      View on GitHub
-                    </div>
-                  </a>
-                </div>
-              </div>
-              <div
-                className={`flex flex-grow flex-col ${styles.projectContainer} ${styles.projectBackgroundFolio}`}
-              >
-                <div className={"flex-grow"}>
-                  <div className={styles.projectTitle}>📑 Folio</div>
-                  <div className={styles.projectDescription}>
-                    Personal website and portfolio.
-                  </div>
-                </div>
-                <div className={"flex-none grid grid-cols-2 gap-8"}>
-                  <a
-                    target={"_blank"}
-                    rel={"noopener noreferrer"}
-                    href={"https://daystram.com"}
-                  >
-                    <div className={`${styles.btn} ${styles.btnProjectVisit}`}>
-                      Visit Project
-                    </div>
-                  </a>
-                  <a
-                    target={"_blank"}
-                    rel={"noopener noreferrer"}
-                    href={"https://github.com/daystram/folio"}
-                  >
-                    <div className={`${styles.btn} ${styles.btnProjectVisit}`}>
-                      View on GitHub
-                    </div>
-                  </a>
-                </div>
-              </div>
+              <Project
+                name={"🔒 Ratify"}
+                description={
+                  "Central Authentication Service implementing OAuth 2.0 and OpenID Connect protocols."
+                }
+                background={styles.projectBackgroundRatify}
+                tags={["OAuth", "Go", "Vue", "Redis", "PostgreSQL"]}
+                link={"https://ratify.daystram.com"}
+                github={"https://github.com/daystram/ratify"}
+              />
+              <Project
+                name={"📋 Cut"}
+                description={"URL, snippet, and file sharing with ease."}
+                background={styles.projectBackgroundCut}
+                tags={["Ephemeral", "Rust", "Vue", "Redis"]}
+                link={"https://cut.daystram.com"}
+                github={"https://github.com/daystram/cut"}
+              />
+              <Project
+                name={"📺 cast"}
+                description={
+                  "DASH video-streaming and RTMP live-streaming platform."
+                }
+                background={styles.projectBackgroundCast}
+                tags={[
+                  "DASH",
+                  "RTMP",
+                  "Go",
+                  "React",
+                  "MongoDB",
+                  "AWS S3",
+                  "FFmpeg",
+                  "CUDA",
+                ]}
+                link={"https://cast.daystram.com"}
+                github={"https://github.com/daystram/cast"}
+              />
+              <Project
+                name={"🌀 Proton"}
+                description={
+                  "Proton K8s cluster setup guide, assets, and configurations."
+                }
+                background={styles.projectBackgroundProton}
+                tags={["Kubernetes", "VPS", "Wireguard VPN", "Self-hosted"]}
+                github={"https://github.com/daystram/proton"}
+              />
+              <Project
+                name={"🚢 helm-charts"}
+                description={"Helm chart repository for daystram applications."}
+                background={styles.projectBackgroundChart}
+                tags={["Helm", "Kubernetes", "CI/CD"]}
+                link={"https://charts.daystram.com"}
+                github={"https://github.com/daystram/helm-charts"}
+              />
+              <Project
+                name={"📑 Folio"}
+                description={"Personal website and portfolio."}
+                background={styles.projectBackgroundFolio}
+                tags={["React", "Next.js"]}
+                link={"https://charts.daystram.com"}
+                github={"https://github.com/daystram/helm-charts"}
+              />
             </div>
           </div>
         </section>
