@@ -65,6 +65,11 @@ export default function Resume() {
             </div>
           </div>
         </section>
+
+        <section className={styles.sectionEven}>
+          <div className={styles.sectionSeparator} />
+        </section>
+
         <section className={`${styles.section} ${styles.sectionEven}`}>
           <div className={"container mx-auto"}>
             <h2 className={styles.sectionHeading}>Experience</h2>
@@ -242,6 +247,11 @@ export default function Resume() {
             </div>
           </div>
         </section>
+
+        <section className={styles.sectionEven}>
+          <div className={styles.sectionSeparator} />
+        </section>
+
         <section className={`${styles.section} ${styles.sectionEven}`}>
           <div className={"container mx-auto"}>
             <h2 className={styles.sectionHeading}>Community</h2>
