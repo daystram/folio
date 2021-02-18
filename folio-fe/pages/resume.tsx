@@ -39,7 +39,12 @@ export default function Resume() {
                 </div>
               </div>
             </div>
-            <div className={styles.entry}>
+            <div
+              className={styles.entry}
+              style={{
+                marginBottom: 0,
+              }}
+            >
               <img src={"logo-ui.png"} className={styles.entryLogo} />
               <div className={styles.entryContainer}>
                 <div className={styles.entryHeadContainer}>
@@ -221,7 +226,12 @@ export default function Resume() {
                 </div>
               </div>
             </div>
-            <div className={styles.entry}>
+            <div
+              className={styles.entry}
+              style={{
+                marginBottom: 0,
+              }}
+            >
               <img src={"logo-trui.png"} className={styles.entryLogo} />
               <div className={styles.entryContainer}>
                 <div className={styles.entryHeadContainer}>
@@ -272,7 +282,12 @@ export default function Resume() {
                 </div>
               </div>
             </div>
-            <div className={styles.entry}>
+            <div
+              className={styles.entry}
+              style={{
+                marginBottom: 0,
+              }}
+            >
               <img src={"logo-trui.png"} className={styles.entryLogo} />
               <div className={styles.entryContainer}>
                 <div className={styles.entryHeadContainer}>
