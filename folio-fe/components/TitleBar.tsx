@@ -34,7 +34,7 @@ export default function TitleBar({ scrollable }: { scrollable?: boolean }) {
     useLayoutEffect(() => {
       setWindowHeight(window.innerHeight);
       setScrolling(window.scrollY > window.innerHeight - 48);
-      window.addEventListener("scroll", () => {
+      const scrollCallback = () => {
         setPageLoaded((loaded) => {
           // skip initial "scroll" event fired by browser
           if (!loaded) {
@@ -44,7 +44,11 @@ export default function TitleBar({ scrollable }: { scrollable?: boolean }) {
           setScrolling(window.scrollY > window.innerHeight - 48);
           return loaded;
         });
-      });
+      };
+      window.addEventListener("scroll", scrollCallback);
+      return () => {
+        window.removeEventListener("scroll", scrollCallback);
+      };
     }, []);
   return (
     <section
@@ -56,7 +60,12 @@ export default function TitleBar({ scrollable }: { scrollable?: boolean }) {
         className={styles.title}
         data-isscrolling={scrolling}
         transition={{ duration: 0 }}
-        style={{ height: titleHeight || "100%" }}
+        style={{
+          height:
+            process.browser && window.scrollY && titleHeight
+              ? titleHeight
+              : "100%",
+        }}
       >
         <motion.div
           layout
