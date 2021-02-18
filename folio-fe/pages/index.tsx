@@ -137,8 +137,8 @@ export default function Home() {
                   description={"Personal website and portfolio."}
                   background={styles.projectBackgroundFolio}
                   tags={["React", "Next.js"]}
-                  link={"https://charts.daystram.com"}
-                  github={"https://github.com/daystram/helm-charts"}
+                  link={"https://daystram.com"}
+                  github={"https://github.com/daystram/folio"}
                 />
               </div>
             </div>
