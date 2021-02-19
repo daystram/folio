@@ -28,18 +28,23 @@ export default function Resume() {
                   <p className={styles.entryHeadingSub1}>
                     Brisbane, QLD, Australia
                   </p>
-                  <ul className={"list-disc"} style={{ paddingLeft: 20 }}>
-                    <li>Majoring in data science</li>
+                  <ul className={styles.entryDescriptionList}>
+                    <li>Majoring in Data Science</li>
                     <li>
                       Scholarship recipient for outstanding academic
                       achievements
                     </li>
-                    <li>UQ Computing Society member</li>
+                    <li>Member of UQ Computing Society</li>
                   </ul>
                 </div>
               </div>
             </div>
-            <div className={styles.entry}>
+            <div
+              className={styles.entry}
+              style={{
+                marginBottom: 0,
+              }}
+            >
               <img src={"logo-ui.png"} className={styles.entryLogo} />
               <div className={styles.entryContainer}>
                 <div className={styles.entryHeadContainer}>
@@ -53,17 +58,23 @@ export default function Resume() {
                 <div className={styles.entryBodyContainer}>
                   <p className={styles.entryHeadingSub1}>Jul 2017 – present</p>
                   <p className={styles.entryHeadingSub1}>Jakarta, Indonesia</p>
-                  <ul className={"list-disc"} style={{ paddingLeft: 20 }}>
+                  <ul className={styles.entryDescriptionList}>
                     <li>
-                      Double degree also in Computer Science with The University
-                      of Queensland
+                      Double degree in Computer Science with The University of
+                      Queensland
                     </li>
+                    <li>Member of Tim Robotika UI</li>
                   </ul>
                 </div>
               </div>
             </div>
           </div>
         </section>
+
+        <section className={styles.sectionEven}>
+          <div className={styles.sectionSeparator} />
+        </section>
+
         <section className={`${styles.section} ${styles.sectionEven}`}>
           <div className={"container mx-auto"}>
             <h2 className={styles.sectionHeading}>Experience</h2>
@@ -81,24 +92,23 @@ export default function Resume() {
                     Sep 2019 – Dec 2019, 4 months
                   </p>
                   <p className={styles.entryHeadingSub1}>Jakarta, Indonesia</p>
-                  <ul className={"list-disc"} style={{ paddingLeft: 20 }}>
+                  <ul className={styles.entryDescriptionList}>
                     <li>A part of a course in Universitas Indonesia</li>
                     <li>
-                      Developed Fleet Tracker service to track customer orders
-                      in real-time
+                      Developed <i>Fleet Tracker</i> service to track customers'
+                      orders' location in real-time
                     </li>
                     <li>
-                      Advanced coordinate interpolation with Kalman filters are
-                      utilized to help reduce GPS usage load on the courier's
-                      mobile devices
+                      Utilized advanced coordinate interpolation with Kalman
+                      filters to reduce GPS usage load on the courier's mobile
+                      devices
                     </li>
                     <li>
                       Location stream retrieved from ActiveMQ managed by
                       HappyFresh
                     </li>
                     <li>
-                      Golang back-end and JS/React front-end with WebSocket
-                      communication
+                      Go back-end and JS+React front-end with WebSocket protocol
                     </li>
                     <li>
                       Automated deployment using Docker containers to AWS EC2
@@ -122,23 +132,23 @@ export default function Resume() {
                     May 2019 – Aug 2019, 4 months
                   </p>
                   <p className={styles.entryHeadingSub1}>Singapore</p>
-                  <ul className={"list-disc"} style={{ paddingLeft: 20 }}>
+                  <ul className={styles.entryDescriptionList}>
                     <li>
                       Developed an adaptive versioning deployment system for
-                      Shopee's website across 7 countries, integrating with the
+                      Shopee's services across 7 countries, integrating with the
                       on-premise GitLab
                     </li>
                     <li>
                       Developed an automatic remote profiling system for the
-                      Golang-based services
+                      Go-based services
                     </li>
                     <li>
-                      Developed a voting system for use within the mobile
-                      application to support tenants' requirements
+                      Developed a voting system for use within Shopee's mobile
+                      application
                     </li>
                     <li>
-                      Mostly developed using Golang back-end, automatically
-                      deployed into Kubernetes cluster
+                      Mostly developed Go-based back-end, automatically deployed
+                      into Kubernetes cluster
                     </li>
                   </ul>
                 </div>
@@ -156,7 +166,7 @@ export default function Resume() {
                 <div className={styles.entryBodyContainer}>
                   <p className={styles.entryHeadingSub1}>Mar 2019 – Aug 2019</p>
                   <p className={styles.entryHeadingSub1}>Jakarta, Indonesia</p>
-                  <ul className={"list-disc"} style={{ paddingLeft: 20 }}>
+                  <ul className={styles.entryDescriptionList}>
                     <li>
                       Developed a mobile application for "Quality in Research
                       International Conference"
@@ -166,18 +176,17 @@ export default function Resume() {
                       Renewable Energy Conference"
                     </li>
                     <li>
-                      Mobile application is powered with Google Firestore
-                      real-time database for data storage and live chat
+                      Google Firestore powered mobile application real-time
+                      database for data storage and live support chat
                     </li>
                     <li>
-                      NodeJS back-end and React Native-based cross-platform
-                      front-end
+                      NodeJS back-end and React Native cross-platform front-end
                     </li>
                     <li>
-                      Back-end uses WebSocket communication acting as a buffer
-                      between user mobile chat clients, the customer service
-                      client, and Google Firestore to offload client load and
-                      optimize read/write operations on Firestore
+                      Back-end uses WebSocket protocol as a buffer between user
+                      mobile chat clients, the customer service client, and
+                      Google Firestore to offload client load and optimize
+                      read/write operations on Firestore
                     </li>
                   </ul>
                 </div>
@@ -199,7 +208,7 @@ export default function Resume() {
                     Sep 2018 – Jun 2019, 10 months
                   </p>
                   <p className={styles.entryHeadingSub1}>Jakarta, Indonesia</p>
-                  <ul className={"list-disc"} style={{ paddingLeft: 20 }}>
+                  <ul className={styles.entryDescriptionList}>
                     <li>
                       (Jan 2019 - Jun 2019, 6 months) Teaching assistant for
                       "Programming Foundations 2" course
@@ -217,7 +226,12 @@ export default function Resume() {
                 </div>
               </div>
             </div>
-            <div className={styles.entry}>
+            <div
+              className={styles.entry}
+              style={{
+                marginBottom: 0,
+              }}
+            >
               <img src={"logo-trui.png"} className={styles.entryLogo} />
               <div className={styles.entryContainer}>
                 <div className={styles.entryHeadContainer}>
@@ -226,6 +240,62 @@ export default function Resume() {
                   </h3>
                   <h4 className={styles.entryHeading2}>
                     Tim Robotika Universitas Indonesia
+                  </h4>
+                </div>
+                <div className={styles.entryBodyContainer}>
+                  <p className={styles.entryHeadingSub1}>
+                    Mar 2018 – Jun 2019, 1 year 4 months
+                  </p>
+                  <p className={styles.entryHeadingSub1}>Jakarta, Indonesia</p>
+                  <ul className={styles.entryDescriptionList}>
+                    <li>
+                      Developed image object recognition using OpenCV in Python
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className={styles.sectionEven}>
+          <div className={styles.sectionSeparator} />
+        </section>
+
+        <section className={`${styles.section} ${styles.sectionEven}`}>
+          <div className={"container mx-auto"}>
+            <h2 className={styles.sectionHeading}>Community</h2>
+            <div className={styles.entry}>
+              <img src={"logo-uqcs.png"} className={styles.entryLogo} />
+              <div className={styles.entryContainer}>
+                <div className={styles.entryHeadContainer}>
+                  <h3 className={styles.entryHeading1}>UQ Computing Society</h3>
+                  <h4 className={styles.entryHeading2}>
+                    Associated with The University of Queensland
+                  </h4>
+                </div>
+                <div className={styles.entryBodyContainer}>
+                  <p className={styles.entryHeadingSub1}>Feb 2020 – present</p>
+                  <p className={styles.entryHeadingSub1}>
+                    Brisbane, QLD, Australia
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div
+              className={styles.entry}
+              style={{
+                marginBottom: 0,
+              }}
+            >
+              <img src={"logo-trui.png"} className={styles.entryLogo} />
+              <div className={styles.entryContainer}>
+                <div className={styles.entryHeadContainer}>
+                  <h3 className={styles.entryHeading1}>
+                    Tim Robotika Universitas Indonesia
+                  </h3>
+                  <h4 className={styles.entryHeading2}>
+                    Associated with Universitas Indonesia
                   </h4>
                 </div>
                 <div className={styles.entryBodyContainer}>

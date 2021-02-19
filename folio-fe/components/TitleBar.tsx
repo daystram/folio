@@ -61,10 +61,11 @@ export default function TitleBar({ scrollable }: { scrollable?: boolean }) {
         data-isscrolling={scrolling}
         transition={{ duration: 0 }}
         style={{
-          height:
-            process.browser && window.scrollY && titleHeight
+          height: scrollable
+            ? process.browser && window.scrollY && titleHeight
               ? titleHeight
-              : "100%",
+              : "100%"
+            : 48,
         }}
       >
         <motion.div
@@ -161,9 +162,11 @@ export default function TitleBar({ scrollable }: { scrollable?: boolean }) {
           </a>
         </motion.div>
       </motion.div>
-      <div className={styles.chevronContainer} style={{ zIndex: 5000 }}>
-        <Chevron shown={process.browser && !window.scrollY} />
-      </div>
+      {scrollable && (
+        <div className={styles.chevronContainer} style={{ zIndex: 5000 }}>
+          <Chevron shown={process.browser && !window.scrollY} />
+        </div>
+      )}
     </section>
   );
 }
