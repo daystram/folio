@@ -17,7 +17,7 @@ build folio-fe:
 
 image dev folio-fe:
   stage: image
-  image: docker:stable-git
+  image: docker:19.03
   needs: ["build folio-fe"]
   environment:
     name: development-fe
@@ -29,8 +29,6 @@ image dev folio-fe:
     - name: docker:dind
       command: ["--experimental"] 
   before_script:
-    - docker build --platform=local -o . git://github.com/docker/buildx
-    - mv buildx ~/.docker/cli-plugins/docker-buildx
     - echo "$CI_REGISTRY_PASSWORD" | docker login -u $CI_REGISTRY_USER --password-stdin $CI_REGISTRY
   script:
     - cd folio-fe
@@ -44,7 +42,7 @@ image dev folio-fe:
 
 image prod folio-fe:
   stage: image
-  image: docker:stable-git
+  image: docker:19.03
   needs: ["build folio-fe"]
   environment:
     name: production-fe
@@ -56,8 +54,6 @@ image prod folio-fe:
     - name: docker:dind
       command: ["--experimental"] 
   before_script:
-    - docker build --platform=local -o . git://github.com/docker/buildx
-    - mv buildx ~/.docker/cli-plugins/docker-buildx
     - echo "$CI_REGISTRY_PASSWORD" | docker login -u $CI_REGISTRY_USER --password-stdin $CI_REGISTRY
   script:
     - cd folio-fe
