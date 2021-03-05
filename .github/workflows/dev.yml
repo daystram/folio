@@ -85,7 +85,6 @@ jobs:
       - name: Deploy Chart
         run: |
           eval `ssh-agent -s`
-          cat ~/.ssh/config
           echo $HOME
           cat /etc/ssh/ssh_config
           ssh -vT git@github.com
