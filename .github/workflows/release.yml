@@ -32,11 +32,9 @@ jobs:
         with:
           context: folio-${{ matrix.app }}
           platforms: linux/amd64
-          tags:
-            [
-              "daystram/folio:${{ matrix.app }}",
-              "daystram/folio:${{ matrix.app }}-${{ env.RELEASE_VERSION }}",
-            ]
+          tags: |
+            daystram/folio:${{ matrix.app }}
+            daystram/folio:${{ matrix.app }}-${{ env.RELEASE_VERSION }}
           push: true
   chart:
     name: Publish Helm Chart
