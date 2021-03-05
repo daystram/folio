@@ -73,8 +73,8 @@ jobs:
           git config --global user.name "${{ secrets.BOTDAYSTRAM_NAME }}"
           git config --global user.email "${{ secrets.BOTDAYSTRAM_EMAIL }}"
           mkdir -p ~/.ssh && eval `ssh-agent -s` && ssh-keyscan github.com >> ~/.ssh/known_hosts
-          echo ${{ secrets.BOTDAYSTRAM_KEY_FILE }} | ssh-add -
-          echo ${{ secrets.KUBECONFIG_FILE }} > $KUBECONFIG && chmod 700 $KUBECONFIG
+          echo "${{ secrets.BOTDAYSTRAM_KEY_FILE }}" | ssh-add -
+          echo "${{ secrets.KUBECONFIG_FILE }}" > $KUBECONFIG && chmod 700 $KUBECONFIG
       - name: Deploy Chart
         run: |
           git clone git@github.com:daystram/helm-charts.git
