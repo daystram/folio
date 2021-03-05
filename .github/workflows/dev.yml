@@ -2,9 +2,9 @@ name: Dev
 
 on:
   push:
-    branches:
-      - !main
-      - !master
+    branches-ignore:
+      - main
+      - master
 
 jobs:
   build-fe:
