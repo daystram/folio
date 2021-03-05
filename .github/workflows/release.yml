@@ -31,7 +31,7 @@ jobs:
         with:
           name: build
           path: |
-            .next/
+            folio-fe/.next/
   image:
     name: Publish Image
     runs-on: Ubuntu-20.04
