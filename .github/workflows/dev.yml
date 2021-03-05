@@ -84,6 +84,7 @@ jobs:
           echo "${{ secrets.KUBECONFIG_FILE }}" > $KUBECONFIG && chmod 700 $KUBECONFIG
       - name: Deploy Chart
         run: |
+          cat ~/.ssh/config
           git clone git@github:daystram/helm-charts.git
           cp -r .daystram helm-charts/docs/
           cd helm-charts/docs/
