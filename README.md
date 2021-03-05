@@ -1,6 +1,6 @@
 # :bookmark_tabs: Folio
 
-[![GitHub Actions Status](https://github.com/daystram/folio/actions/workflows/release.yml/badge.svg)](https://github.com/daystram/folio/actions/workflows/release.yml)
+[![GitHub Actions Status](https://github.com/daystram/folio/actions/workflows/build.yml/badge.svg)](https://github.com/daystram/folio/actions/workflows/build.yml)
 [![Docker Pulls](https://img.shields.io/docker/pulls/daystram/folio)](https://hub.docker.com/r/daystram/folio)
 [![MIT License](https://img.shields.io/github/license/daystram/folio)](https://github.com/daystram/folio/blob/master/LICENSE)
 
