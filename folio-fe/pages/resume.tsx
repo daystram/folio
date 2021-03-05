@@ -17,24 +17,29 @@ export default function Resume() {
               <div className={styles.entryContainer}>
                 <div className={styles.entryHeadContainer}>
                   <h3 className={styles.entryHeading1}>
-                    The University of Queensland
+                    University of Queensland
                   </h3>
                   <h4 className={styles.entryHeading2}>
-                    Bachelor of Computer Science, GPA: 7.00/7.00
+                    Computer Science, GPA: 7.00/7.00
                   </h4>
                 </div>
                 <div className={styles.entryBodyContainer}>
-                  <p className={styles.entryHeadingSub1}>Feb 2020 – present</p>
                   <p className={styles.entryHeadingSub1}>
-                    Brisbane, QLD, Australia
+                    Feb 2020 – present (expected Nov 2021)
                   </p>
+                  <p className={styles.entryHeadingSub1}>Brisbane, Australia</p>
                   <ul className={styles.entryDescriptionList}>
-                    <li>Majoring in Data Science</li>
+                    <li>
+                      Bachelor of Computer Science, majoring in Data Science.
+                    </li>
+                    <li>
+                      Received two Dean’s commendations for academic excellence
+                      across two semesters.
+                    </li>
                     <li>
                       Scholarship recipient for outstanding academic
-                      achievements
+                      achievements.
                     </li>
-                    <li>Member of UQ Computing Society</li>
                   </ul>
                 </div>
               </div>
@@ -52,18 +57,20 @@ export default function Resume() {
                     Universitas Indonesia
                   </h3>
                   <h4 className={styles.entryHeading2}>
-                    Bachelor of Computer Science, GPA: 3.99/4.00
+                    Computer Science, GPA: 3.99/4.00
                   </h4>
                 </div>
                 <div className={styles.entryBodyContainer}>
-                  <p className={styles.entryHeadingSub1}>Jul 2017 – present</p>
+                  <p className={styles.entryHeadingSub1}>
+                    Jul 2017 – present (expected Nov 2021)
+                  </p>
                   <p className={styles.entryHeadingSub1}>Jakarta, Indonesia</p>
                   <ul className={styles.entryDescriptionList}>
+                    <li>Bachelor of Computer Science.</li>
                     <li>
-                      Double degree in Computer Science with The University of
-                      Queensland
+                      Double degree in Computer Science with University of
+                      Queensland.
                     </li>
-                    <li>Member of Tim Robotika UI</li>
                   </ul>
                 </div>
               </div>
@@ -77,42 +84,33 @@ export default function Resume() {
 
         <section className={`${styles.section} ${styles.sectionEven}`}>
           <div className={"container mx-auto"}>
-            <h2 className={styles.sectionHeading}>Experience</h2>
+            <h2 className={styles.sectionHeading}>Working Experience</h2>
             <div className={styles.entry}>
               <img src={"logo-hf.png"} className={styles.entryLogo} />
               <div className={styles.entryContainer}>
                 <div className={styles.entryHeadContainer}>
-                  <h3 className={styles.entryHeading1}>Software Developer</h3>
-                  <h4 className={styles.entryHeading2}>
-                    HappyFresh, Part-time
-                  </h4>
+                  <h3 className={styles.entryHeading1}>
+                    Software Developer Intern
+                  </h3>
+                  <h4 className={styles.entryHeading2}>HappyFresh</h4>
                 </div>
                 <div className={styles.entryBodyContainer}>
-                  <p className={styles.entryHeadingSub1}>
-                    Sep 2019 – Dec 2019, 4 months
-                  </p>
+                  <p className={styles.entryHeadingSub1}>Sep 2019 – Dec 2019</p>
                   <p className={styles.entryHeadingSub1}>Jakarta, Indonesia</p>
                   <ul className={styles.entryDescriptionList}>
-                    <li>A part of a course in Universitas Indonesia</li>
                     <li>
-                      Developed <i>Fleet Tracker</i> service to track customers'
-                      orders' location in real-time
+                      Implemented a live delivery tracker system for more than 5
+                      000 concurrent active deliveries.
                     </li>
                     <li>
-                      Utilized advanced coordinate interpolation with Kalman
-                      filters to reduce GPS usage load on the courier's mobile
-                      devices
+                      Retrieved live GPS feed from couriers via ActiveMQ,
+                      processed in Go backend, served in React frontend + Google
+                      Maps with WebSocket protocol for live delivery feed.
                     </li>
                     <li>
-                      Location stream retrieved from ActiveMQ managed by
-                      HappyFresh
-                    </li>
-                    <li>
-                      Go back-end and JS+React front-end with WebSocket protocol
-                    </li>
-                    <li>
-                      Automated deployment using Docker containers to AWS EC2
-                      via GitLab CI
+                      Doubled battery life of couriers’ tracking devices by
+                      implementing Kalman filters and location interpolation to
+                      reduce GPS polling rate by more than 50%.
                     </li>
                   </ul>
                 </div>
@@ -122,33 +120,28 @@ export default function Resume() {
               <img src={"logo-sp.png"} className={styles.entryLogo} />
               <div className={styles.entryContainer}>
                 <div className={styles.entryHeadContainer}>
-                  <h3 className={styles.entryHeading1}>Back-end Developer</h3>
-                  <h4 className={styles.entryHeading2}>
-                    Shopee, Full-time Intern
-                  </h4>
+                  <h3 className={styles.entryHeading1}>
+                    Backend Developer Intern
+                  </h3>
+                  <h4 className={styles.entryHeading2}>Shopee</h4>
                 </div>
                 <div className={styles.entryBodyContainer}>
-                  <p className={styles.entryHeadingSub1}>
-                    May 2019 – Aug 2019, 4 months
-                  </p>
+                  <p className={styles.entryHeadingSub1}>May 2019 – Aug 2019</p>
                   <p className={styles.entryHeadingSub1}>Singapore</p>
                   <ul className={styles.entryDescriptionList}>
                     <li>
-                      Developed an adaptive versioning deployment system for
-                      Shopee's services across 7 countries, integrating with the
-                      on-premise GitLab
+                      Designed and implemented an adaptive deployment versioning
+                      system for all Shopee applications across 7 Southeast
+                      Asian countries, using Go backend with Redis, GitLab API
+                      integration, and Google Cloud Platform APIs.
                     </li>
                     <li>
-                      Developed an automatic remote profiling system for the
-                      Go-based services
+                      Enhanced scalability and reliability of a live voting app
+                      by migrating to RabbitMQ with Go backend, serving 5 000
+                      peak concurrent voters.
                     </li>
                     <li>
-                      Developed a voting system for use within Shopee's mobile
-                      application
-                    </li>
-                    <li>
-                      Mostly developed Go-based back-end, automatically deployed
-                      into Kubernetes cluster
+                      Developed a remote profiling system for Go-based backends.
                     </li>
                   </ul>
                 </div>
@@ -160,7 +153,7 @@ export default function Resume() {
                 <div className={styles.entryHeadContainer}>
                   <h3 className={styles.entryHeading1}>Software Engineer</h3>
                   <h4 className={styles.entryHeading2}>
-                    Pusat Ilmu Komputer Universitas Indonesia, Part-time
+                    Universitas Indonesia Centre of Computer Science
                   </h4>
                 </div>
                 <div className={styles.entryBodyContainer}>
@@ -168,19 +161,14 @@ export default function Resume() {
                   <p className={styles.entryHeadingSub1}>Jakarta, Indonesia</p>
                   <ul className={styles.entryDescriptionList}>
                     <li>
-                      Developed a mobile application for "Quality in Research
-                      International Conference"
+                      Developed a mobile guide and support app for two
+                      international conferences using React Native.
                     </li>
                     <li>
-                      Developed a mobile application for "International Tropical
-                      Renewable Energy Conference"
-                    </li>
-                    <li>
-                      Google Firestore powered mobile application real-time
-                      database for data storage and live support chat
-                    </li>
-                    <li>
-                      NodeJS back-end and React Native cross-platform front-end
+                      Designed and created a live chat feature for help and
+                      support using WebSocket protocol with Node.js + Google
+                      Firebase backend, serving more than 1 000 concurrent
+                      users.
                     </li>
                     <li>
                       Back-end uses WebSocket protocol as a buffer between user
@@ -192,6 +180,16 @@ export default function Resume() {
                 </div>
               </div>
             </div>
+          </div>
+        </section>
+
+        <section className={styles.sectionEven}>
+          <div className={styles.sectionSeparator} />
+        </section>
+
+        <section className={`${styles.section} ${styles.sectionEven}`}>
+          <div className={"container mx-auto"}>
+            <h2 className={styles.sectionHeading}>Other Activities</h2>
             <div className={styles.entry}>
               <img src={"logo-ui.png"} className={styles.entryLogo} />
               <div className={styles.entryContainer}>
@@ -204,23 +202,21 @@ export default function Resume() {
                   </h4>
                 </div>
                 <div className={styles.entryBodyContainer}>
-                  <p className={styles.entryHeadingSub1}>
-                    Sep 2018 – Jun 2019, 10 months
-                  </p>
+                  <p className={styles.entryHeadingSub1}>Sep 2018 – Jun 2019</p>
                   <p className={styles.entryHeadingSub1}>Jakarta, Indonesia</p>
                   <ul className={styles.entryDescriptionList}>
                     <li>
-                      (Jan 2019 - Jun 2019, 6 months) Teaching assistant for
-                      "Programming Foundations 2" course
+                      Managed and coordinated a team of teaching assistants for
+                      multiple courses.
                     </li>
                     <li>
-                      (Jan 2019 - Jun 2019, 6 months) Teaching assistant
-                      coordinator for "Introduction to Computer Organization"
-                      course
+                      Assisted with teaching for “Programming Foundations 2”,
+                      “Introduction to Computer Organization” and “Introduction
+                      to Digital Systems” courses across two semesters.
                     </li>
                     <li>
-                      (Sep 2018 - Jan 2019, 5 months) Teaching assistant
-                      coordinator for "Introduction to Digital Systems" course
+                      Created and marked practicals, tutorials, and assignments
+                      for these courses.
                     </li>
                   </ul>
                 </div>
@@ -235,21 +231,18 @@ export default function Resume() {
               <img src={"logo-trui.png"} className={styles.entryLogo} />
               <div className={styles.entryContainer}>
                 <div className={styles.entryHeadContainer}>
-                  <h3 className={styles.entryHeading1}>
-                    Autonomous Rocket Research System Programmer
-                  </h3>
+                  <h3 className={styles.entryHeading1}>System Programmer</h3>
                   <h4 className={styles.entryHeading2}>
-                    Tim Robotika Universitas Indonesia
+                    Universitas Indonesia Robotics Team
                   </h4>
                 </div>
                 <div className={styles.entryBodyContainer}>
-                  <p className={styles.entryHeadingSub1}>
-                    Mar 2018 – Jun 2019, 1 year 4 months
-                  </p>
+                  <p className={styles.entryHeadingSub1}>Mar 2018 – Jun 2019</p>
                   <p className={styles.entryHeadingSub1}>Jakarta, Indonesia</p>
                   <ul className={styles.entryDescriptionList}>
                     <li>
-                      Developed image object recognition using OpenCV in Python
+                      Developed rocket control system for the Autonomous Rocket
+                      Research Division (AURORA) using Python and C++.
                     </li>
                   </ul>
                 </div>
@@ -271,14 +264,12 @@ export default function Resume() {
                 <div className={styles.entryHeadContainer}>
                   <h3 className={styles.entryHeading1}>UQ Computing Society</h3>
                   <h4 className={styles.entryHeading2}>
-                    Associated with The University of Queensland
+                    Associated with University of Queensland
                   </h4>
                 </div>
                 <div className={styles.entryBodyContainer}>
                   <p className={styles.entryHeadingSub1}>Feb 2020 – present</p>
-                  <p className={styles.entryHeadingSub1}>
-                    Brisbane, QLD, Australia
-                  </p>
+                  <p className={styles.entryHeadingSub1}>Brisbane, Australia</p>
                 </div>
               </div>
             </div>
@@ -292,16 +283,14 @@ export default function Resume() {
               <div className={styles.entryContainer}>
                 <div className={styles.entryHeadContainer}>
                   <h3 className={styles.entryHeading1}>
-                    Tim Robotika Universitas Indonesia
+                    Universitas Indonesia Robotics Team
                   </h3>
                   <h4 className={styles.entryHeading2}>
                     Associated with Universitas Indonesia
                   </h4>
                 </div>
                 <div className={styles.entryBodyContainer}>
-                  <p className={styles.entryHeadingSub1}>
-                    Mar 2018 – Jun 2019, 1 year 4 months
-                  </p>
+                  <p className={styles.entryHeadingSub1}>Mar 2018 – Jun 2019</p>
                   <p className={styles.entryHeadingSub1}>Jakarta, Indonesia</p>
                 </div>
               </div>

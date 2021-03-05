@@ -1,0 +1,28 @@
+name: Build
+
+on: push
+
+jobs:
+  build-fe:
+    name: Build folio-fe
+    runs-on: Ubuntu-20.04
+    defaults:
+      run:
+        working-directory: folio-fe
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+      - name: Setup Node.js
+        uses: actions/setup-node@v2.1.5
+        with:
+          node-version: 12.x
+      - name: Install Dependencies
+        run: yarn install
+      - name: Build
+        run: yarn build
+      - name: Archive Artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: build
+          path: |
+            folio-fe/.next/
