@@ -54,6 +54,7 @@ jobs:
           push: true
   chart:
     name: Publish Helm Chart
+    runs-on: Ubuntu-20.04
     container: daystram/k8s-tools:latest
     needs: [image]
     steps:
