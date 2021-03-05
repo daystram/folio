@@ -81,7 +81,7 @@ jobs:
               StrictHostKeyChecking no
           EOF
           echo "${{ secrets.KUBECONFIG_FILE }}" > $KUBECONFIG && chmod 700 $KUBECONFIG
-      - name: Deploy Chart
+      - name: Build and Deploy Chart
         run: |
           eval `ssh-agent -s`
           git clone ssh://git@github.com/daystram/helm-charts.git
@@ -90,5 +90,5 @@ jobs:
           curl -sfL https://charts.daystram.com/build.sh | sh -s - folio ${{ env.RELEASE_VERSION }}
           rm -rf .daystram/
           git add .
-          'git commit -m "feat: added chart for folio@${{ env.RELEASE_VERSION }}"'
+          git commit -m "feat: added chart for folio@${{ env.RELEASE_VERSION }}"
           git push
