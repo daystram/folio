@@ -86,6 +86,7 @@ jobs:
         run: |
           eval `ssh-agent -s`
           cat ~/.ssh/config
+          ssh -vT git@github.com
           git clone ssh://git@github.com/daystram/helm-charts.git
           cp -r .daystram helm-charts/docs/
           cd helm-charts/docs/
