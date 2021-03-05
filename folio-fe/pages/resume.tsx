@@ -69,9 +69,8 @@ export default function Resume() {
                     <li>Bachelor of Computer Science.</li>
                     <li>
                       Double degree in Computer Science with University of
-                      Queensland
+                      Queensland.
                     </li>
-                    <li>Member of Tim Robotika UI</li>
                   </ul>
                 </div>
               </div>
