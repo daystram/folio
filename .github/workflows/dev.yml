@@ -72,12 +72,11 @@ jobs:
         run: |
           git config --global user.name "${{ secrets.BOTDAYSTRAM_NAME }}"
           git config --global user.email "${{ secrets.BOTDAYSTRAM_EMAIL }}"
-          mkdir -p ~/.ssh && ssh-keyscan github.com >> ~/.ssh/known_hosts
-          echo "${{ secrets.BOTDAYSTRAM_KEY_FILE }}" > ~/.ssh/id_rsa.github
+          mkdir -p /root/.ssh && echo "${{ secrets.BOTDAYSTRAM_KEY_FILE }}" > /root/.ssh/id_rsa.github
           cat >> /etc/ssh/ssh_config <<EOF
           Host github.com
               HostName github.com
-              IdentityFile ~/.ssh/id_rsa.github
+              IdentityFile /root/.ssh/id_rsa.github
               IdentitiesOnly yes
               StrictHostKeyChecking no
           EOF
@@ -85,8 +84,6 @@ jobs:
       - name: Deploy Chart
         run: |
           eval `ssh-agent -s`
-          echo $HOME
-          cat /etc/ssh/ssh_config
           ssh -vT git@github.com
           git clone ssh://git@github.com/daystram/helm-charts.git
           cp -r .daystram helm-charts/docs/
