@@ -24,6 +24,12 @@ jobs:
         run: yarn install
       - name: Build
         run: yarn build
+      - name: Archive Artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: build
+          path: |
+            .next/
   image:
     name: Publish Image
     runs-on: Ubuntu-20.04
