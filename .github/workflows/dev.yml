@@ -72,14 +72,19 @@ jobs:
         run: |
           git config --global user.name "${{ secrets.BOTDAYSTRAM_NAME }}"
           git config --global user.email "${{ secrets.BOTDAYSTRAM_EMAIL }}"
-          eval `ssh-agent -s`
-          echo "${{ secrets.BOTDAYSTRAM_KEY_FILE }}" | ssh-add -
+          echo "${{ secrets.BOTDAYSTRAM_KEY_FILE }}" > ~/.ssh/id_rsa.github
+          mkdir -p ~/.ssh && ssh-keyscan github.com >> ~/.ssh/known_hosts
+          cat >> ~/.ssh/config <<EOF
+          Host github
+              HostName github.com
+              IdentityFile ~/.ssh/id_rsa.github
+              IdentitiesOnly yes
+              StrictHostKeyChecking no
+          EOF
           echo "${{ secrets.KUBECONFIG_FILE }}" > $KUBECONFIG && chmod 700 $KUBECONFIG
       - name: Deploy Chart
         run: |
-          eval `ssh-agent -s`
-          mkdir -p ~/.ssh && ssh-keyscan github.com >> ~/.ssh/known_hosts
-          git clone git@github.com:daystram/helm-charts.git
+          git clone git@github:daystram/helm-charts.git
           cp -r .daystram helm-charts/docs/
           cd helm-charts/docs/
           curl -sfL https://charts.daystram.com/build.sh | sh -s - folio ${{ env.RELEASE_VERSION }}
