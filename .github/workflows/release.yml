@@ -9,7 +9,6 @@ jobs:
   image:
     name: Publish Image
     runs-on: Ubuntu-20.04
-    if: ${{ github.event.push.tags }}
     strategy:
       matrix:
         app: [fe]
@@ -40,7 +39,6 @@ jobs:
     name: Publish Helm Chart
     runs-on: Ubuntu-20.04
     container: daystram/k8s-tools:latest
-    if: ${{ github.event.push.tags }}
     needs: [image]
     steps:
       - name: Checkout Repository
