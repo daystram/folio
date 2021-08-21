@@ -6,7 +6,7 @@ export default function FooterBar() {
   return (
     <footer className={styles.footer}>
       <div className={styles.copy}>
-        Self-Hosted at K8s Cluster
+        Hosted at Cloudflare Pages
         <br />
         <br />
         Danny August Ramaputra {new Date().getFullYear()}
