@@ -1,12 +1,17 @@
 import React from "react";
-import FooterBar from "../components/FooterBar";
+import Head from "../components/Head";
 import TitleBar from "../components/TitleBar";
+import FooterBar from "../components/FooterBar";
 
 import styles from "./index.module.sass";
 
 export default function Resume() {
   return (
     <div className={styles.container}>
+      <Head
+        title={"Resume | Danny August Ramaputra"}
+        description={"Danny August Ramaputra's resume."}
+      />
       <main>
         <TitleBar />
         <section className={`${styles.section} ${styles.sectionEven}`}>

@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import Head from "../components/Head";
 import TitleBar from "../components/TitleBar";
 import FooterBar from "../components/FooterBar";
 import Project from "../components/Project";
@@ -9,6 +10,12 @@ import styles from "./index.module.sass";
 export default function Home() {
   return (
     <div className={styles.container}>
+      <Head
+        title={"Danny August Ramaputra"}
+        description={
+          "Hi! I am Danny August Ramaputra. I am a computer science student at The University of Queensland, majoring in data science. I enjoy working on fun projects to explore new technologies."
+        }
+      />
       <main>
         <TitleBar scrollable />
         <section className={styles.content}>
