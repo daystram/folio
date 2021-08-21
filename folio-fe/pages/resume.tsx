@@ -1,12 +1,17 @@
 import React from "react";
-import FooterBar from "../components/FooterBar";
+import Head from "../components/Head";
 import TitleBar from "../components/TitleBar";
+import FooterBar from "../components/FooterBar";
 
 import styles from "./index.module.sass";
 
 export default function Resume() {
   return (
     <div className={styles.container}>
+      <Head
+        title={"Resume | Danny August Ramaputra"}
+        description={"Danny August Ramaputra's resume."}
+      />
       <main>
         <TitleBar />
         <section className={`${styles.section} ${styles.sectionEven}`}>
@@ -25,7 +30,7 @@ export default function Resume() {
                 </div>
                 <div className={styles.entryBodyContainer}>
                   <p className={styles.entryHeadingSub1}>
-                    Feb 2020 – present (expected Nov 2021)
+                    Feb 2020 – present (expected Dec 2021)
                   </p>
                   <p className={styles.entryHeadingSub1}>Brisbane, Australia</p>
                   <ul className={styles.entryDescriptionList}>
@@ -33,8 +38,8 @@ export default function Resume() {
                       Bachelor of Computer Science, majoring in Data Science.
                     </li>
                     <li>
-                      Received two Dean’s commendations for academic excellence
-                      across two semesters.
+                      Received three Dean’s commendations for academic
+                      excellence across three semesters.
                     </li>
                     <li>
                       Scholarship recipient for outstanding academic
@@ -62,7 +67,7 @@ export default function Resume() {
                 </div>
                 <div className={styles.entryBodyContainer}>
                   <p className={styles.entryHeadingSub1}>
-                    Jul 2017 – present (expected Nov 2021)
+                    Jul 2017 – present (expected Dec 2021)
                   </p>
                   <p className={styles.entryHeadingSub1}>Jakarta, Indonesia</p>
                   <ul className={styles.entryDescriptionList}>
@@ -127,7 +132,7 @@ export default function Resume() {
                 </div>
                 <div className={styles.entryBodyContainer}>
                   <p className={styles.entryHeadingSub1}>May 2019 – Aug 2019</p>
-                  <p className={styles.entryHeadingSub1}>Singapore</p>
+                  <p className={styles.entryHeadingSub1}>Indonesia</p>
                   <ul className={styles.entryDescriptionList}>
                     <li>
                       Designed and implemented an adaptive deployment versioning

@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import Head from "../components/Head";
 import TitleBar from "../components/TitleBar";
 import FooterBar from "../components/FooterBar";
 import Project from "../components/Project";
@@ -9,6 +10,12 @@ import styles from "./index.module.sass";
 export default function Home() {
   return (
     <div className={styles.container}>
+      <Head
+        title={"Danny August Ramaputra"}
+        description={
+          "Hi! I am Danny August Ramaputra. I am a computer science student at The University of Queensland, majoring in data science. I enjoy working on fun projects to explore new technologies."
+        }
+      />
       <main>
         <TitleBar scrollable />
         <section className={styles.content}>
@@ -28,7 +35,7 @@ export default function Home() {
                   <span className={`${styles.focus} ${styles.highlight}`}>
                     Danny August Ramaputra
                   </span>
-                  , nicknamed <span className={styles.focus}>daystram</span>.
+                  .
                 </div>
                 <div className={styles.entryHeading1}>
                   I am a{" "}
@@ -82,7 +89,7 @@ export default function Home() {
                     "Central Authentication Service implementing OAuth 2.0 and OpenID Connect protocols."
                   }
                   background={styles.projectBackgroundRatify}
-                  tags={["OAuth", "Go", "Vue", "Redis", "PostgreSQL"]}
+                  tags={["OAuth", "OpenID", "Go", "Vue", "Redis", "PostgreSQL"]}
                   link={"https://ratify.daystram.com"}
                   github={"https://github.com/daystram/ratify"}
                 />
@@ -93,6 +100,21 @@ export default function Home() {
                   tags={["Ephemeral", "Rust", "Vue", "Redis"]}
                   link={"https://cut.daystram.com"}
                   github={"https://github.com/daystram/cut"}
+                />
+                <Project
+                  name={"🛰️ Audit"}
+                  description={"Service monitor and incident manager."}
+                  background={styles.projectBackgroundAudit}
+                  tags={[
+                    "gRPC",
+                    "Monitoring",
+                    "Go",
+                    "Vue",
+                    "InfluxDB",
+                    "PostgreSQL",
+                  ]}
+                  link={"https://audit.daystram.com"}
+                  github={"https://github.com/daystram/audit"}
                 />
                 <Project
                   name={"📺 cast"}
@@ -131,14 +153,6 @@ export default function Home() {
                   tags={["Helm", "Kubernetes", "CI/CD"]}
                   link={"https://charts.daystram.com"}
                   github={"https://github.com/daystram/helm-charts"}
-                />
-                <Project
-                  name={"📑 Folio"}
-                  description={"Personal website and portfolio."}
-                  background={styles.projectBackgroundFolio}
-                  tags={["React", "Next.js"]}
-                  link={"https://daystram.com"}
-                  github={"https://github.com/daystram/folio"}
                 />
               </div>
             </div>
